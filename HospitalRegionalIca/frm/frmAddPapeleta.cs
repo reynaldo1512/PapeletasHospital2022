@@ -257,7 +257,7 @@ namespace HospitalRegionalIca.frm
                 if (sdr.Read())
                 {
                     
-                    lblId.Text=sdr["id_trabajador"].ToString();
+                    lblIdTrabajador.Text=sdr["id_trabajador"].ToString();
                     lblIdCategoria.Text = sdr["id_categoria"].ToString();
                     txtDNI.Text = sdr["DNI"].ToString();
                     txtPersonal.Text = sdr["Personal"].ToString();
@@ -326,7 +326,7 @@ namespace HospitalRegionalIca.frm
 
                             int idTipoPapeleta = 1;
                             papeletaModel.id_tipoPapeleta = idTipoPapeleta;
-                            papeletaModel.id_trabajador = Convert.ToInt32(lblId.Text);
+                            papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
                             papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
                             papeletaModel.turno = "";
                             papeletaModel.id_usuario = UsuarioModel.id_usuario;
@@ -362,8 +362,8 @@ namespace HospitalRegionalIca.frm
                         else if (rbtnHora.Checked)
                         {
                             papeletaModel.id_tipoPapeleta = 2;
-                            int id = Convert.ToInt32(lblId.Text);
-                            papeletaModel.id_trabajador = Convert.ToInt32(lblId.Text);
+                            int id = Convert.ToInt32(lblIdTrabajador.Text);
+                            papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
                             papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
                             papeletaModel.turno = "";
                             papeletaModel.id_usuario = UsuarioModel.id_usuario;
@@ -422,10 +422,10 @@ namespace HospitalRegionalIca.frm
                     {
                         if (rbtnDia.Checked)
                         {
-
+                            papeletaModel.id_papeleta = Convert.ToInt32(txtIdPapeleta.Text);
                             int idTipoPapeleta = 1;
                             papeletaModel.id_tipoPapeleta = idTipoPapeleta;
-                            papeletaModel.id_trabajador = Convert.ToInt32(lblId.Text);
+                            papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
                             papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
                             papeletaModel.turno = "";
                             papeletaModel.id_usuario = UsuarioModel.id_usuario;
@@ -452,17 +452,18 @@ namespace HospitalRegionalIca.frm
                             papeletaModel.estado = true;
                             papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
                             papeletaModel.id_solicitud = 1;
-                            papeletaNegocio.AgregarPapeleta(papeletaModel);
-                            MessageBox.Show("Se guardo la papeleta Correctamente");
+                            papeletaNegocio.EditarPapeleta(papeletaModel);
+                            MessageBox.Show("Se edito la papeleta Correctamente");
                             Close();
 
 
                         }
                         else if (rbtnHora.Checked)
                         {
+                            papeletaModel.id_papeleta = Convert.ToInt32(txtIdPapeleta.Text);
                             papeletaModel.id_tipoPapeleta = 2;
-                            int id = Convert.ToInt32(lblId.Text);
-                            papeletaModel.id_trabajador = Convert.ToInt32(lblId.Text);
+                            int id = Convert.ToInt32(lblIdTrabajador.Text);
+                            papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
                             papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
                             papeletaModel.turno = "";
                             papeletaModel.id_usuario = UsuarioModel.id_usuario;
@@ -490,7 +491,7 @@ namespace HospitalRegionalIca.frm
                             papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
                             papeletaModel.id_solicitud = 1;
 
-                            papeletaNegocio.AgregarPapeleta(papeletaModel);
+                            papeletaNegocio.EditarPapeleta(papeletaModel);
 
 
                             MessageBox.Show("Se edito la papeleta Correctamente");

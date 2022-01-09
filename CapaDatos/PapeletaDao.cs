@@ -46,11 +46,6 @@ namespace CapaDatos
         }
 
 
-
-
-
-
-
         public void AgregarPapeleta(PapeletaModel papeleta)
         {
             SqlCommand cmd = new SqlCommand("SP_AGREGAR_PAPELETA2", connection);
@@ -87,6 +82,7 @@ namespace CapaDatos
             SqlCommand cmd = new SqlCommand("SP_EDITAR_PAPELETA ", connection);
             cmd.CommandType = CommandType.StoredProcedure;
             connection.Open();
+            cmd.Parameters.AddWithValue("@id_papeleta", papeleta.id_papeleta);
             cmd.Parameters.AddWithValue("@id_tipoPapeleta", papeleta.id_tipoPapeleta);
             cmd.Parameters.AddWithValue("@id_trabajador", papeleta.id_trabajador);
             cmd.Parameters.AddWithValue("@id_motivo", papeleta.id_motivo);

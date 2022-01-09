@@ -60,25 +60,7 @@ namespace HospitalRegionalIca
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            pSubMenuReportes.Visible = true;
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            pSubMenuReportes.Visible = false;
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            pSubMenuReportes.Visible = false;
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            pSubMenuReportes.Visible = false;
-        }
+       
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -141,6 +123,18 @@ namespace HospitalRegionalIca
             btnInicio_Click(null, e);
             timer1.Enabled = true;
             ObtenerDatosUsuario();
+            
+            if (UsuarioModel.id_rol==1)
+            {
+                btnPapeleta.Enabled = true;
+                btnTrabajador.Enabled = true;
+
+            }
+            else if(UsuarioModel.id_rol==2)
+            {
+                btnPapeleta.Enabled = true;
+                btnTrabajador.Enabled = false;
+            }
        
 
         }
@@ -229,6 +223,8 @@ namespace HospitalRegionalIca
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
+
+           
            AbriFormPapeleta(new frmPapeleta());
         }
     }

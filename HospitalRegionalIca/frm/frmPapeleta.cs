@@ -19,6 +19,7 @@ namespace HospitalRegionalIca.frm
         public frmPapeleta()
         {
             InitializeComponent();
+            HideWidthColumns();
 
 
             if (UsuarioModel.id_rol==1)
@@ -26,6 +27,16 @@ namespace HospitalRegionalIca.frm
                 MostrarPapeleta(/*UsuarioModel.id_departamento*/);
             }
             
+        }
+        public void HideWidthColumns()
+        {
+
+
+
+
+
+
+
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -84,6 +95,7 @@ namespace HospitalRegionalIca.frm
                     frm.Update = true;
                     frm.groupBox1.Enabled = false;
                     frm.dtpFechaRegistro.Enabled = false;
+                    frm.txtIdPapeleta.Text = dataGridViewPapeleta.CurrentRow.Cells["id_papeleta"].Value.ToString();
                     string IdTipoPapeleta = dataGridViewPapeleta.CurrentRow.Cells["id_tipoPapeleta"].Value.ToString();
                     frm.txtCodigo.Text = dataGridViewPapeleta.CurrentRow.Cells["numero_documento"].Value.ToString();
                     if (Convert.ToInt32(IdTipoPapeleta) == 1)
@@ -125,6 +137,7 @@ namespace HospitalRegionalIca.frm
                     frm.txtSustento.Text= dataGridViewPapeleta.CurrentRow.Cells["sustento"].Value.ToString();
 
                     frm.ShowDialog();
+                    MostrarPapeleta();
 
                 }
                 else MessageBox.Show("Seleccione la fila de la papeleta");

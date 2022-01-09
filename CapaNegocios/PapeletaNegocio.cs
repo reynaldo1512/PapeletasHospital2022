@@ -33,6 +33,10 @@ namespace CapaNegocios
             data.AgregarPapeleta(papeleta);
         }
 
+        public void EditarPapeleta(PapeletaModel papeleta)
+        {
+            data.EditarPapeleta(papeleta);
+        }
         public void EliminarPapeleta(int id_papeleta)
         {
             data.EliminarPapeleta(id_papeleta);
