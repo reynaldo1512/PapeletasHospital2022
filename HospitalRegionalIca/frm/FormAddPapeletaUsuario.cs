@@ -15,6 +15,7 @@ namespace HospitalRegionalIca.frm
         public FormAddPapeletaUsuario()
         {
             InitializeComponent();
+            //hola
         }
     }
 }
