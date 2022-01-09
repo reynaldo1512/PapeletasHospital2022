@@ -156,5 +156,19 @@ namespace HospitalRegionalIca
             }
             else MessageBox.Show("Seleccione la fila del trabajador");
         }
+
+
+        
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = true;
+            txtBuscar.Visible = true;
+        }
     }
 }

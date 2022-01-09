@@ -40,7 +40,7 @@ namespace HospitalRegionalIca.frm
             this.ptitulo = new System.Windows.Forms.Panel();
             this.lblPersonal = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtBuscarDNI = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dataGridViewPapeleta = new System.Windows.Forms.DataGridView();
             this.pBotones.SuspendLayout();
             this.ptitulo.SuspendLayout();
@@ -78,6 +78,7 @@ namespace HospitalRegionalIca.frm
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnSalir
             // 
@@ -149,6 +150,7 @@ namespace HospitalRegionalIca.frm
             this.btneliminar.Text = "Eliminar";
             this.btneliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // ptitulo
             // 
@@ -182,13 +184,16 @@ namespace HospitalRegionalIca.frm
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
-            // txtBuscarDNI
+            // txtBuscar
             // 
-            this.txtBuscarDNI.Location = new System.Drawing.Point(179, 82);
-            this.txtBuscarDNI.Name = "txtBuscarDNI";
-            this.txtBuscarDNI.Size = new System.Drawing.Size(274, 22);
-            this.txtBuscarDNI.TabIndex = 14;
+            this.txtBuscar.Location = new System.Drawing.Point(179, 82);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(274, 22);
+            this.txtBuscar.TabIndex = 14;
+            this.txtBuscar.Visible = false;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // dataGridViewPapeleta
             // 
@@ -211,7 +216,7 @@ namespace HospitalRegionalIca.frm
             this.ClientSize = new System.Drawing.Size(905, 559);
             this.Controls.Add(this.dataGridViewPapeleta);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtBuscarDNI);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.ptitulo);
             this.Controls.Add(this.pBotones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -237,7 +242,7 @@ namespace HospitalRegionalIca.frm
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Label lblPersonal;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtBuscarDNI;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dataGridViewPapeleta;
         public System.Windows.Forms.Panel ptitulo;

@@ -13,6 +13,7 @@ namespace CapaNegocios
     {
         PapeletaDao data = new PapeletaDao();
         PapeletaModel papeleta = new PapeletaModel();
+        TrabajadorModel trabajador = new TrabajadorModel();
 
         public DataTable ListarPapeletas()
         {
@@ -20,9 +21,21 @@ namespace CapaNegocios
             return data.ListarPapeleta();
         }
 
+      
+        public DataTable BuscarPapeletas(string filtro)
+        {
+            PapeletaNegocio papeleta = new PapeletaNegocio();
+            return data.BuscarPapeleta(filtro);
+        }
+        
         public void AgregarPapeleta (PapeletaModel papeleta)
         {
             data.AgregarPapeleta(papeleta);
+        }
+
+        public void EliminarPapeleta(int id_papeleta)
+        {
+            data.EliminarPapeleta(id_papeleta);
         }
     }
 }

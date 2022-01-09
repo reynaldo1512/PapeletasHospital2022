@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaEntidad;
 using CapaNegocios;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace HospitalRegionalIca.frm
 {
@@ -49,6 +51,26 @@ namespace HospitalRegionalIca.frm
         {
             PapeletaNegocio papeleta = new PapeletaNegocio();
             dataGridViewPapeleta.DataSource = papeleta.ListarPapeletas();
+        }
+
+        public void FiltrarPapeleta(string filtro)
+        {
+
+            if (txtBuscar.Text=="")
+            {
+                MostrarPapeleta();
+            }
+            else
+            {
+                PapeletaNegocio papeleta = new PapeletaNegocio();
+                dataGridViewPapeleta.DataSource = papeleta.BuscarPapeletas(filtro);
+            }
+
+           
+
+
+
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -113,6 +135,41 @@ namespace HospitalRegionalIca.frm
                 //codigo
             }
             
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewPapeleta.SelectedRows.Count > 0)
+            {
+
+                PapeletaNegocio papeleta = new PapeletaNegocio();
+
+               int id_papeleta =Convert.ToInt32(dataGridViewPapeleta.CurrentRow.Cells["id_papeleta"].Value);
+                
+
+                papeleta.EliminarPapeleta(id_papeleta);
+                MostrarPapeleta();
+
+            }
+            else MessageBox.Show("Seleccione la fila del trabajador");
+        }
+
+
+     
+        
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = true;
+            txtBuscar.Visible = true;
+            
+
+
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+            FiltrarPapeleta(txtBuscar.Text);
         }
     }
 }

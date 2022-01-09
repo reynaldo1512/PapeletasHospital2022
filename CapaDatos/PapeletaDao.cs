@@ -29,9 +29,27 @@ namespace CapaDatos
             return tabla;
         }
 
+        public DataTable BuscarPapeleta(string filtro)
+        {
+            DataTable tabla = new DataTable();
+            SqlDataReader leer;
+           
+            SqlCommand cmd = new SqlCommand("SP_BUSCAR_PAPELETA_ADMINISTRADOR", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            connection.Open();
+            cmd.Parameters.AddWithValue("@filtro", filtro);
+            leer = cmd.ExecuteReader();
+            tabla.Load(leer);
+            leer.Close();
+            connection.Close();
+            return tabla;
+        }
 
 
-        
+
+
+
+
 
         public void AgregarPapeleta(PapeletaModel papeleta)
         {
@@ -67,6 +85,7 @@ namespace CapaDatos
         public void EditarPapeleta(PapeletaModel papeleta)
         {
             SqlCommand cmd = new SqlCommand("SP_EDITAR_PAPELETA ", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
             connection.Open();
             cmd.Parameters.AddWithValue("@id_tipoPapeleta", papeleta.id_tipoPapeleta);
             cmd.Parameters.AddWithValue("@id_trabajador", papeleta.id_trabajador);
@@ -93,7 +112,17 @@ namespace CapaDatos
 
         }
 
+        
 
+        public void EliminarPapeleta(int id_papeleta)
+        {
+            SqlCommand cmd = new SqlCommand("SP_ELIMINAR_PAPELETA", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            connection.Open();
+            cmd.Parameters.AddWithValue("@id_papeleta",id_papeleta);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
         
     }
 }
