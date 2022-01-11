@@ -173,6 +173,7 @@ namespace HospitalRegionalIca
             this.pContenedor.Tag = papeleta;
             papeleta.Show();
         }
+
         //private void AbrirFormFUA(object formFua)
         //{
         //    if (this.pContenedor.Controls.Count > 0)
@@ -223,9 +224,17 @@ namespace HospitalRegionalIca
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
+            if (UsuarioModel.id_rol == 1)
+            {
+                AbriFormPapeleta(new frmPapeleta());
+            }
 
-           
-           AbriFormPapeleta(new frmPapeleta());
+            else if (UsuarioModel.id_rol == 2)
+            {
+                AbriFormPapeleta(new FormAddPapeletaUsuario());
+            }
+            else MessageBox.Show("No se encuentra el rol al usuario");
+          
         }
     }
 }

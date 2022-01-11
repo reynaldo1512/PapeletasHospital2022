@@ -25,7 +25,9 @@ namespace HospitalRegionalIca.frm
             if (UsuarioModel.id_rol==1)
             {
                 MostrarPapeleta(/*UsuarioModel.id_departamento*/);
+
             }
+            
             
         }
         public void HideWidthColumns()
@@ -62,6 +64,11 @@ namespace HospitalRegionalIca.frm
         {
             PapeletaNegocio papeleta = new PapeletaNegocio();
             dataGridViewPapeleta.DataSource = papeleta.ListarPapeletas();
+
+            
+
+
+
         }
 
         public void FiltrarPapeleta(string filtro)
@@ -184,5 +191,75 @@ namespace HospitalRegionalIca.frm
 
             FiltrarPapeleta(txtBuscar.Text);
         }
+
+        private void dataGridViewPapeleta_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            //foreach (DataGridViewColumn column in dataGridViewPapeleta.Columns)
+            //{
+
+            //    if (column[e.ColumnIndex])
+            //    {
+            //        dataGridViewPapeleta.DefaultCellStyle.BackColor = Color.Yellow;
+            //    }
+            //    else
+            //        dataGridViewPapeleta.DefaultCellStyle.BackColor = Color.White;
+            //}
+
+
+
+            //if (this.dataGridViewPapeleta.Columns[e.ColumnIndex].Name == "id")
+            //{
+            //    //int id_solicitud = Convert.ToInt32(this.dataGridViewPapeleta.Rows[e.RowIndex].Cells[1].Value);
+            //    if (Convert.ToInt32(e.Value) == 1)
+            //    {
+            //        dataGridViewPapeleta.BackColor = Color.Yellow;
+            //        //e.CellStyle.BackColor = Color.Yellow;
+            //    }
+
+            //}
+
+
+
+
+
+
+
+
+
+        }
+
+        private void frmPapeleta_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void dataGridViewPapeleta_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+           
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewPapeleta.Rows)
+            {
+
+                int id_solicitud = Convert.ToInt32(row.Cells[21].Value);
+
+                if (id_solicitud == 2)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Yellow;
+                }
+
+
+            }
+        }
+
+       
     }
 }

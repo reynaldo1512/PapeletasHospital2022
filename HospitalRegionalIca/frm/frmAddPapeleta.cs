@@ -307,221 +307,433 @@ namespace HospitalRegionalIca.frm
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-
-            if (validarTextBoxs(this))
+            if (UsuarioModel.id_rol==1)
             {
+                
+                
+                    int id_papeleta = papeletaModel.id_papeleta;
 
-                int id_papeleta = papeletaModel.id_papeleta;
+                    if (Update == false)
 
-                if (Update == false)
-
-                {
-                    int id_maximo = 1 + Convert.ToInt32(lblIdMaximo.Text);
-
-                    try
                     {
-                        if (rbtnDia.Checked)
-                        {
+                        int id_maximo = 1 + Convert.ToInt32(lblIdMaximo.Text);
 
-                            int idTipoPapeleta = 1;
-                            papeletaModel.id_tipoPapeleta = idTipoPapeleta;
-                            papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
-                            papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
-                            papeletaModel.turno = "";
-                            papeletaModel.id_usuario = UsuarioModel.id_usuario;
-                            codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month+DateTime.Now.Day+DateTime.Now.Hour+ DateTime.Now.Minute+DateTime.Now.Second+DateTime.Now.Millisecond+"D"+id_maximo;
-                            papeletaModel.numero_documento = codigo_papeleta;
-                            papeletaModel.fecha_inicio = dtpFechaInicial.Value.Date;
-                            //DateTime fechaInicio = dtpFechaInicial.Value.Date;
-                            papeletaModel.fecha_fin = dtpFechaFinal.Value.Date;
-                            //DateTime fechaFin = dtpFechaFinal.Value.Date;
-                            papeletaModel.hora_inicio = 0;
-                            papeletaModel.minuto_inicio = 0;
-                            papeletaModel.hora_fin = 0;
-                            papeletaModel.minuto_fin = 0;
-                            //TimeSpan timeSpan = fechaFin - fechaInicio;
-                            //int dias = timeSpan.Days;
-                            //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                            //papeletaModel.remuneracion_dia = remuneracionDia;
-                            //decimal remuneracionHora = (remuneracionDia) / 8;
-                            //decimal remuneracionMinuto = remuneracionHora / 60;
-                            //papeletaModel.remuneracion_minuto = remuneracionMinuto;
-                            //papeletaModel.descuento = dias * remuneracionDia;
-                            papeletaModel.sustento = txtSustento.Text;
-                            papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
-                            papeletaModel.estado = true;
-                            papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
-                            papeletaModel.id_solicitud = 1;
-                            papeletaNegocio.AgregarPapeleta(papeletaModel);
-                            MessageBox.Show("Se guardo la papeleta Correctamente");
-                            Close();
+                        try
+                        {
+                            if (rbtnDia.Checked)
+                            {
+
+                                int idTipoPapeleta = 1;
+                                papeletaModel.id_tipoPapeleta = idTipoPapeleta;
+                                papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
+                                papeletaModel.turno = "";
+                                papeletaModel.id_usuario = UsuarioModel.id_usuario;
+                                codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "D" + id_maximo;
+                                papeletaModel.numero_documento = codigo_papeleta;
+                                papeletaModel.fecha_inicio = dtpFechaInicial.Value.Date;
+                                //DateTime fechaInicio = dtpFechaInicial.Value.Date;
+                                papeletaModel.fecha_fin = dtpFechaFinal.Value.Date;
+                                //DateTime fechaFin = dtpFechaFinal.Value.Date;
+                                papeletaModel.hora_inicio = 0;
+                                papeletaModel.minuto_inicio = 0;
+                                papeletaModel.hora_fin = 0;
+                                papeletaModel.minuto_fin = 0;
+                                //TimeSpan timeSpan = fechaFin - fechaInicio;
+                                //int dias = timeSpan.Days;
+                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                                //papeletaModel.remuneracion_dia = remuneracionDia;
+                                //decimal remuneracionHora = (remuneracionDia) / 8;
+                                //decimal remuneracionMinuto = remuneracionHora / 60;
+                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                                //papeletaModel.descuento = dias * remuneracionDia;
+                                papeletaModel.sustento = txtSustento.Text;
+                                papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
+                                papeletaModel.estado = true;
+                                papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
+                                papeletaModel.id_solicitud = 1;
+                                papeletaNegocio.AgregarPapeleta(papeletaModel);
+                                MessageBox.Show("Se guardo la papeleta Correctamente");
+                                Close();
+
+
+                            }
+                            else if (rbtnHora.Checked)
+                            {
+                                papeletaModel.id_tipoPapeleta = 2;
+                                int id = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
+                                papeletaModel.turno = "";
+                                papeletaModel.id_usuario = UsuarioModel.id_usuario;
+                                codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "H" + id_maximo;
+                                papeletaModel.numero_documento = codigo_papeleta;
+                                papeletaModel.fecha_inicio = dtpFechaPermiso.Value.Date;
+                                papeletaModel.fecha_fin = dtpFechaPermiso.Value.Date;
+                                papeletaModel.hora_inicio = Convert.ToInt32(txtHoraInicio.Text);
+                                papeletaModel.minuto_inicio = Convert.ToInt32(txtMinInicio.Text);
+                                papeletaModel.hora_fin = Convert.ToInt32(txtHoraFin.Text);
+                                papeletaModel.minuto_fin = Convert.ToInt32(txtMinFin.Text);
+                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                                //papeletaModel.remuneracion_dia = remuneracionDia;
+                                //decimal remuneracionHora = (remuneracionDia) / 8;
+                                //decimal remuneracion_hora = remuneracionHora;
+                                //decimal remuneracionMinuto = remuneracionHora / 60;
+                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+
+                                //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
+                                //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
+                                //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                                papeletaModel.sustento = txtSustento.Text;
+                                papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
+                                papeletaModel.estado = true;
+                                papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
+                                papeletaModel.id_solicitud = 1;
+
+                                papeletaNegocio.AgregarPapeleta(papeletaModel);
+
+
+                                MessageBox.Show("Se guardo la papeleta Correctamente");
+                                Close();
+
+
+                            }
+                            else
+                                MessageBox.Show("No se puedo guardar la papeleta");
+
+
+
 
 
                         }
-                        else if (rbtnHora.Checked)
+                        catch (Exception ex)
                         {
-                            papeletaModel.id_tipoPapeleta = 2;
-                            int id = Convert.ToInt32(lblIdTrabajador.Text);
-                            papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
-                            papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
-                            papeletaModel.turno = "";
-                            papeletaModel.id_usuario = UsuarioModel.id_usuario;
-                            codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "H" + id_maximo;
-                            papeletaModel.numero_documento = codigo_papeleta;
-                            papeletaModel.fecha_inicio = dtpFechaPermiso.Value.Date;
-                            papeletaModel.fecha_fin = dtpFechaPermiso.Value.Date;
-                            papeletaModel.hora_inicio = Convert.ToInt32(txtHoraInicio.Text);
-                            papeletaModel.minuto_inicio = Convert.ToInt32(txtMinInicio.Text);
-                            papeletaModel.hora_fin = Convert.ToInt32(txtHoraFin.Text);
-                            papeletaModel.minuto_fin = Convert.ToInt32(txtMinFin.Text);
-                            //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                            //papeletaModel.remuneracion_dia = remuneracionDia;
-                            //decimal remuneracionHora = (remuneracionDia) / 8;
-                            //decimal remuneracion_hora = remuneracionHora;
-                            //decimal remuneracionMinuto = remuneracionHora / 60;
-                            //papeletaModel.remuneracion_minuto = remuneracionMinuto;
 
-                            //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
-                            //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
-                            //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
-                            papeletaModel.sustento = txtSustento.Text;
-                            papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
-                            papeletaModel.estado = true;
-                            papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
-                            papeletaModel.id_solicitud = 1;
+                            MessageBox.Show("no se pudo guardar la papeleta" + ex);
+                        }
 
-                            papeletaNegocio.AgregarPapeleta(papeletaModel);
-                            
+                    }
+                    if (Update == true)
+                    {
+                        int id_maximo = 1 + Convert.ToInt32(lblIdMaximo.Text);
 
-                            MessageBox.Show("Se guardo la papeleta Correctamente");
-                            Close();
+                        try
+                        {
+                            if (rbtnDia.Checked)
+                            {
+                                papeletaModel.id_papeleta = Convert.ToInt32(txtIdPapeleta.Text);
+                                int idTipoPapeleta = 1;
+                                papeletaModel.id_tipoPapeleta = idTipoPapeleta;
+                                papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
+                                papeletaModel.turno = "";
+                                papeletaModel.id_usuario = UsuarioModel.id_usuario;
+                                codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "D" + id_maximo;
+                                papeletaModel.numero_documento = codigo_papeleta;
+                                papeletaModel.fecha_inicio = dtpFechaInicial.Value.Date;
+                                //DateTime fechaInicio = dtpFechaInicial.Value.Date;
+                                papeletaModel.fecha_fin = dtpFechaFinal.Value.Date;
+                                //DateTime fechaFin = dtpFechaFinal.Value.Date;
+                                papeletaModel.hora_inicio = 0;
+                                papeletaModel.minuto_inicio = 0;
+                                papeletaModel.hora_fin = 0;
+                                papeletaModel.minuto_fin = 0;
+                                //TimeSpan timeSpan = fechaFin - fechaInicio;
+                                //int dias = timeSpan.Days;
+                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                                //papeletaModel.remuneracion_dia = remuneracionDia;
+                                //decimal remuneracionHora = (remuneracionDia) / 8;
+                                //decimal remuneracionMinuto = remuneracionHora / 60;
+                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                                //papeletaModel.descuento = dias * remuneracionDia;
+                                papeletaModel.sustento = txtSustento.Text;
+                                papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
+                                papeletaModel.estado = true;
+                                papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
+                                papeletaModel.id_solicitud = 1;
+                                papeletaNegocio.EditarPapeleta(papeletaModel);
+                                MessageBox.Show("Se edito la papeleta Correctamente");
+                                Close();
+
+
+                            }
+                            else if (rbtnHora.Checked)
+                            {
+                                papeletaModel.id_papeleta = Convert.ToInt32(txtIdPapeleta.Text);
+                                papeletaModel.id_tipoPapeleta = 2;
+                                int id = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
+                                papeletaModel.turno = "";
+                                papeletaModel.id_usuario = UsuarioModel.id_usuario;
+                                codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "H" + id_maximo;
+                                papeletaModel.numero_documento = codigo_papeleta;
+                                papeletaModel.fecha_inicio = dtpFechaPermiso.Value.Date;
+                                papeletaModel.fecha_fin = dtpFechaPermiso.Value.Date;
+                                papeletaModel.hora_inicio = Convert.ToInt32(txtHoraInicio.Text);
+                                papeletaModel.minuto_inicio = Convert.ToInt32(txtMinInicio.Text);
+                                papeletaModel.hora_fin = Convert.ToInt32(txtHoraFin.Text);
+                                papeletaModel.minuto_fin = Convert.ToInt32(txtMinFin.Text);
+                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                                //papeletaModel.remuneracion_dia = remuneracionDia;
+                                //decimal remuneracionHora = (remuneracionDia) / 8;
+                                //decimal remuneracion_hora = remuneracionHora;
+                                //decimal remuneracionMinuto = remuneracionHora / 60;
+                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+
+                                //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
+                                //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
+                                //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                                papeletaModel.sustento = txtSustento.Text;
+                                papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
+                                papeletaModel.estado = true;
+                                papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
+                                papeletaModel.id_solicitud = 1;
+
+                                papeletaNegocio.EditarPapeleta(papeletaModel);
+
+
+                                MessageBox.Show("Se edito la papeleta Correctamente");
+                                Close();
+                                Update = false;
+
+
+                            }
+                            else
+                                MessageBox.Show("No se pudo editar la papeleta");
+
+
+
 
 
                         }
-                        else
-                            MessageBox.Show("No se puedo guardar la papeleta");
+                        catch (Exception ex)
+                        {
 
-
-
-
-
+                            MessageBox.Show("no se edito la papeleta" + ex);
+                        }
                     }
-                    catch (Exception ex)
-                    {
-
-                        MessageBox.Show("no se pudo guardar la papeleta" + ex);
-                    }
-
                 }
-                if (Update == true)
-                {
-                    int id_maximo = 1 + Convert.ToInt32(lblIdMaximo.Text);
 
-                    try
+            
+            else if (UsuarioModel.id_rol==2)
+            {
+                
+                
+                    int id_papeleta = papeletaModel.id_papeleta;
+
+                    if (Update == false)
+
                     {
-                        if (rbtnDia.Checked)
+                        int id_maximo = 1 + Convert.ToInt32(lblIdMaximo.Text);
+
+                        try
                         {
-                            papeletaModel.id_papeleta = Convert.ToInt32(txtIdPapeleta.Text);
-                            int idTipoPapeleta = 1;
-                            papeletaModel.id_tipoPapeleta = idTipoPapeleta;
-                            papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
-                            papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
-                            papeletaModel.turno = "";
-                            papeletaModel.id_usuario = UsuarioModel.id_usuario;
-                            codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "D" + id_maximo;
-                            papeletaModel.numero_documento = codigo_papeleta;
-                            papeletaModel.fecha_inicio = dtpFechaInicial.Value.Date;
-                            //DateTime fechaInicio = dtpFechaInicial.Value.Date;
-                            papeletaModel.fecha_fin = dtpFechaFinal.Value.Date;
-                            //DateTime fechaFin = dtpFechaFinal.Value.Date;
-                            papeletaModel.hora_inicio = 0;
-                            papeletaModel.minuto_inicio = 0;
-                            papeletaModel.hora_fin = 0;
-                            papeletaModel.minuto_fin = 0;
-                            //TimeSpan timeSpan = fechaFin - fechaInicio;
-                            //int dias = timeSpan.Days;
-                            //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                            //papeletaModel.remuneracion_dia = remuneracionDia;
-                            //decimal remuneracionHora = (remuneracionDia) / 8;
-                            //decimal remuneracionMinuto = remuneracionHora / 60;
-                            //papeletaModel.remuneracion_minuto = remuneracionMinuto;
-                            //papeletaModel.descuento = dias * remuneracionDia;
-                            papeletaModel.sustento = txtSustento.Text;
-                            papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
-                            papeletaModel.estado = true;
-                            papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
-                            papeletaModel.id_solicitud = 1;
-                            papeletaNegocio.EditarPapeleta(papeletaModel);
-                            MessageBox.Show("Se edito la papeleta Correctamente");
-                            Close();
+                            if (rbtnDia.Checked)
+                            {
+
+                                int idTipoPapeleta = 1;
+                                papeletaModel.id_tipoPapeleta = idTipoPapeleta;
+                                papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
+                                papeletaModel.turno = "";
+                                papeletaModel.id_usuario = UsuarioModel.id_usuario;
+                                codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "D" + id_maximo;
+                                papeletaModel.numero_documento = codigo_papeleta;
+                                papeletaModel.fecha_inicio = dtpFechaInicial.Value.Date;
+                                //DateTime fechaInicio = dtpFechaInicial.Value.Date;
+                                papeletaModel.fecha_fin = dtpFechaFinal.Value.Date;
+                                //DateTime fechaFin = dtpFechaFinal.Value.Date;
+                                papeletaModel.hora_inicio = 0;
+                                papeletaModel.minuto_inicio = 0;
+                                papeletaModel.hora_fin = 0;
+                                papeletaModel.minuto_fin = 0;
+                                //TimeSpan timeSpan = fechaFin - fechaInicio;
+                                //int dias = timeSpan.Days;
+                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                                //papeletaModel.remuneracion_dia = remuneracionDia;
+                                //decimal remuneracionHora = (remuneracionDia) / 8;
+                                //decimal remuneracionMinuto = remuneracionHora / 60;
+                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                                //papeletaModel.descuento = dias * remuneracionDia;
+                                papeletaModel.sustento = txtSustento.Text;
+                                papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
+                                papeletaModel.estado = true;
+                                papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
+                                papeletaModel.id_solicitud = 1;
+                                papeletaNegocio.AgregarPapeleta(papeletaModel);
+                                MessageBox.Show("Se guardo la papeleta Correctamente");
+                                Close();
+
+
+                            }
+                            else if (rbtnHora.Checked)
+                            {
+                                papeletaModel.id_tipoPapeleta = 2;
+                                int id = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
+                                papeletaModel.turno = "";
+                                papeletaModel.id_usuario = UsuarioModel.id_usuario;
+                                codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "H" + id_maximo;
+                                papeletaModel.numero_documento = codigo_papeleta;
+                                papeletaModel.fecha_inicio = dtpFechaPermiso.Value.Date;
+                                papeletaModel.fecha_fin = dtpFechaPermiso.Value.Date;
+                                papeletaModel.hora_inicio = Convert.ToInt32(txtHoraInicio.Text);
+                                papeletaModel.minuto_inicio = Convert.ToInt32(txtMinInicio.Text);
+                                papeletaModel.hora_fin = Convert.ToInt32(txtHoraFin.Text);
+                                papeletaModel.minuto_fin = Convert.ToInt32(txtMinFin.Text);
+                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                                //papeletaModel.remuneracion_dia = remuneracionDia;
+                                //decimal remuneracionHora = (remuneracionDia) / 8;
+                                //decimal remuneracion_hora = remuneracionHora;
+                                //decimal remuneracionMinuto = remuneracionHora / 60;
+                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+
+                                //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
+                                //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
+                                //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                                papeletaModel.sustento = txtSustento.Text;
+                                papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
+                                papeletaModel.estado = true;
+                                papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
+                                papeletaModel.id_solicitud = 1;
+
+                                papeletaNegocio.AgregarPapeleta(papeletaModel);
+
+
+                                MessageBox.Show("Se guardo la papeleta Correctamente");
+                                Close();
+
+
+                            }
+                            else
+                                MessageBox.Show("No se puedo guardar la papeleta");
+
+
+
 
 
                         }
-                        else if (rbtnHora.Checked)
+                        catch (Exception ex)
                         {
-                            papeletaModel.id_papeleta = Convert.ToInt32(txtIdPapeleta.Text);
-                            papeletaModel.id_tipoPapeleta = 2;
-                            int id = Convert.ToInt32(lblIdTrabajador.Text);
-                            papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
-                            papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
-                            papeletaModel.turno = "";
-                            papeletaModel.id_usuario = UsuarioModel.id_usuario;
-                            codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "H" + id_maximo;
-                            papeletaModel.numero_documento = codigo_papeleta;
-                            papeletaModel.fecha_inicio = dtpFechaPermiso.Value.Date;
-                            papeletaModel.fecha_fin = dtpFechaPermiso.Value.Date;
-                            papeletaModel.hora_inicio = Convert.ToInt32(txtHoraInicio.Text);
-                            papeletaModel.minuto_inicio = Convert.ToInt32(txtMinInicio.Text);
-                            papeletaModel.hora_fin = Convert.ToInt32(txtHoraFin.Text);
-                            papeletaModel.minuto_fin = Convert.ToInt32(txtMinFin.Text);
-                            //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                            //papeletaModel.remuneracion_dia = remuneracionDia;
-                            //decimal remuneracionHora = (remuneracionDia) / 8;
-                            //decimal remuneracion_hora = remuneracionHora;
-                            //decimal remuneracionMinuto = remuneracionHora / 60;
-                            //papeletaModel.remuneracion_minuto = remuneracionMinuto;
 
-                            //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
-                            //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
-                            //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
-                            papeletaModel.sustento = txtSustento.Text;
-                            papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
-                            papeletaModel.estado = true;
-                            papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
-                            papeletaModel.id_solicitud = 1;
-
-                            papeletaNegocio.EditarPapeleta(papeletaModel);
-
-
-                            MessageBox.Show("Se edito la papeleta Correctamente");
-                            Close();
-                            Update = false;
-
-
+                            MessageBox.Show("no se pudo guardar la papeleta" + ex);
                         }
-                        else
-                            MessageBox.Show("No se pudo editar la papeleta");
-
-
-
-
 
                     }
-                    catch (Exception ex)
+                    if (Update == true)
                     {
+                        int id_maximo = 1 + Convert.ToInt32(lblIdMaximo.Text);
 
-                        MessageBox.Show("no se edito la papeleta" + ex);
+                        try
+                        {
+                            if (rbtnDia.Checked)
+                            {
+                                papeletaModel.id_papeleta = Convert.ToInt32(txtIdPapeleta.Text);
+                                int idTipoPapeleta = 1;
+                                papeletaModel.id_tipoPapeleta = idTipoPapeleta;
+                                papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
+                                papeletaModel.turno = "";
+                                papeletaModel.id_usuario = UsuarioModel.id_usuario;
+                                codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "D" + id_maximo;
+                                papeletaModel.numero_documento = codigo_papeleta;
+                                papeletaModel.fecha_inicio = dtpFechaInicial.Value.Date;
+                                //DateTime fechaInicio = dtpFechaInicial.Value.Date;
+                                papeletaModel.fecha_fin = dtpFechaFinal.Value.Date;
+                                //DateTime fechaFin = dtpFechaFinal.Value.Date;
+                                papeletaModel.hora_inicio = 0;
+                                papeletaModel.minuto_inicio = 0;
+                                papeletaModel.hora_fin = 0;
+                                papeletaModel.minuto_fin = 0;
+                                //TimeSpan timeSpan = fechaFin - fechaInicio;
+                                //int dias = timeSpan.Days;
+                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                                //papeletaModel.remuneracion_dia = remuneracionDia;
+                                //decimal remuneracionHora = (remuneracionDia) / 8;
+                                //decimal remuneracionMinuto = remuneracionHora / 60;
+                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                                //papeletaModel.descuento = dias * remuneracionDia;
+                                papeletaModel.sustento = txtSustento.Text;
+                                papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
+                                papeletaModel.estado = true;
+                                papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
+                                papeletaModel.id_solicitud = 1;
+                                papeletaNegocio.EditarPapeleta(papeletaModel);
+                                MessageBox.Show("Se edito la papeleta Correctamente");
+                                Close();
+
+
+                            }
+                            else if (rbtnHora.Checked)
+                            {
+                                papeletaModel.id_papeleta = Convert.ToInt32(txtIdPapeleta.Text);
+                                papeletaModel.id_tipoPapeleta = 2;
+                                int id = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_trabajador = Convert.ToInt32(lblIdTrabajador.Text);
+                                papeletaModel.id_motivo = Convert.ToInt32(cmbMotivo.SelectedValue);
+                                papeletaModel.turno = "";
+                                papeletaModel.id_usuario = UsuarioModel.id_usuario;
+                                codigo_papeleta = DateTime.Now.Year + "-" + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + "H" + id_maximo;
+                                papeletaModel.numero_documento = codigo_papeleta;
+                                papeletaModel.fecha_inicio = dtpFechaPermiso.Value.Date;
+                                papeletaModel.fecha_fin = dtpFechaPermiso.Value.Date;
+                                papeletaModel.hora_inicio = Convert.ToInt32(txtHoraInicio.Text);
+                                papeletaModel.minuto_inicio = Convert.ToInt32(txtMinInicio.Text);
+                                papeletaModel.hora_fin = Convert.ToInt32(txtHoraFin.Text);
+                                papeletaModel.minuto_fin = Convert.ToInt32(txtMinFin.Text);
+                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                                //papeletaModel.remuneracion_dia = remuneracionDia;
+                                //decimal remuneracionHora = (remuneracionDia) / 8;
+                                //decimal remuneracion_hora = remuneracionHora;
+                                //decimal remuneracionMinuto = remuneracionHora / 60;
+                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+
+                                //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
+                                //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
+                                //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                                papeletaModel.sustento = txtSustento.Text;
+                                papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
+                                papeletaModel.estado = true;
+                                papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
+                                papeletaModel.id_solicitud = 1;
+
+                                papeletaNegocio.EditarPapeleta(papeletaModel);
+
+
+                                MessageBox.Show("Se edito la papeleta Correctamente");
+                                Close();
+                                Update = false;
+
+
+                            }
+                            else
+                                MessageBox.Show("No se pudo editar la papeleta");
+
+
+
+
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show("no se edito la papeleta" + ex);
+                        }
                     }
                 }
+
             }
-        }
+
+            
+        
             
             
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-
+           
 
             if (txtHoraInicio.Text!="" && txtMinInicio.Text!="" && txtHoraFin.Text!="" && txtMinFin.Text!="")
             {
@@ -584,7 +796,7 @@ namespace HospitalRegionalIca.frm
                         decimal remuneracionHora = (remuneracionDia) / 8;
                         decimal remuneracion_hora = remuneracionHora;
                         decimal remuneracionMinuto = remuneracionHora / 60;
-
+                        papeletaModel.remuneracion_minuto = remuneracionMinuto;
                         int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
                         int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
                         decimal descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
@@ -601,7 +813,7 @@ namespace HospitalRegionalIca.frm
                         decimal remuneracionHora = (remuneracionDia) / 6;
                         decimal remuneracion_hora = remuneracionHora;
                         decimal remuneracionMinuto = remuneracionHora / 60;
-
+                        papeletaModel.remuneracion_minuto = remuneracionMinuto;
                         int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
                         int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
                         decimal descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;

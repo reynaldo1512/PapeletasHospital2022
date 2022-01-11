@@ -42,6 +42,7 @@ namespace HospitalRegionalIca.frm
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dataGridViewPapeleta = new System.Windows.Forms.DataGridView();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.pBotones.SuspendLayout();
             this.ptitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,6 +93,7 @@ namespace HospitalRegionalIca.frm
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEditar
             // 
@@ -209,6 +211,21 @@ namespace HospitalRegionalIca.frm
             this.dataGridViewPapeleta.RowTemplate.Height = 24;
             this.dataGridViewPapeleta.Size = new System.Drawing.Size(758, 419);
             this.dataGridViewPapeleta.TabIndex = 16;
+            this.dataGridViewPapeleta.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewPapeleta_CellFormatting);
+            this.dataGridViewPapeleta.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewPapeleta_RowsAdded);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton1.Location = new System.Drawing.Point(515, 82);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(167, 21);
+            this.radioButton1.TabIndex = 17;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Papeletas Pendientes";
+            this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // frmPapeleta
             // 
@@ -216,6 +233,7 @@ namespace HospitalRegionalIca.frm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::HospitalRegionalIca.Properties.Resources.main_bg08;
             this.ClientSize = new System.Drawing.Size(905, 559);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.dataGridViewPapeleta);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtBuscar);
@@ -224,6 +242,7 @@ namespace HospitalRegionalIca.frm
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPapeleta";
             this.Text = "frmPapeleta";
+            this.Load += new System.EventHandler(this.frmPapeleta_Load);
             this.pBotones.ResumeLayout(false);
             this.ptitulo.ResumeLayout(false);
             this.ptitulo.PerformLayout();
@@ -246,7 +265,8 @@ namespace HospitalRegionalIca.frm
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.DataGridView dataGridViewPapeleta;
         public System.Windows.Forms.Panel ptitulo;
+        public System.Windows.Forms.DataGridView dataGridViewPapeleta;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
