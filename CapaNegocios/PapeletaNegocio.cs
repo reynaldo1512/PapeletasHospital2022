@@ -21,11 +21,23 @@ namespace CapaNegocios
             return data.ListarPapeleta();
         }
 
+        public DataTable ListarPapeletasUsuario(int id_departamento)
+        {
+            PapeletaNegocio papeleta = new PapeletaNegocio();
+            return data.ListarPapeletaUsuario(id_departamento);
+        }
+
       
         public DataTable BuscarPapeletas(string filtro)
         {
             PapeletaNegocio papeleta = new PapeletaNegocio();
             return data.BuscarPapeleta(filtro);
+        }
+
+        public DataTable BuscarPapeletaUsuario(string filtro,int id_departamento)
+        {
+            PapeletaNegocio papeleta = new PapeletaNegocio();
+            return data.BuscarPapeletaUsuario(filtro,id_departamento);
         }
         
         public void AgregarPapeleta (PapeletaModel papeleta)

@@ -29,6 +29,22 @@ namespace CapaDatos
             return tabla;
         }
 
+        public DataTable ListarPapeletaUsuario(int id_departamento)
+        {
+            DataTable tabla = new DataTable();
+            SqlDataReader leer;
+            SqlCommand cmd = new SqlCommand("SP_LISTAR_PAPELETA_USUARIO", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id_departamento",id_departamento);
+            connection.Open();
+            leer = cmd.ExecuteReader();
+            tabla.Load(leer);
+            leer.Close();
+            connection.Close();
+            return tabla;
+
+        }
+
         public DataTable BuscarPapeleta(string filtro)
         {
             DataTable tabla = new DataTable();
@@ -38,6 +54,23 @@ namespace CapaDatos
             cmd.CommandType = CommandType.StoredProcedure;
             connection.Open();
             cmd.Parameters.AddWithValue("@filtro", filtro);
+            leer = cmd.ExecuteReader();
+            tabla.Load(leer);
+            leer.Close();
+            connection.Close();
+            return tabla;
+        }
+        public DataTable BuscarPapeletaUsuario(string filtro, int id_departamento)
+        {
+            DataTable tabla = new DataTable();
+            SqlDataReader leer;
+
+            SqlCommand cmd = new SqlCommand("SP_BUSCAR_PAPELETA_USUARIO", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            connection.Open();
+            cmd.Parameters.AddWithValue("@filtro", filtro);
+            cmd.Parameters.AddWithValue("@id_departamento", id_departamento);
+
             leer = cmd.ExecuteReader();
             tabla.Load(leer);
             leer.Close();

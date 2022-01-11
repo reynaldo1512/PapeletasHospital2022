@@ -179,6 +179,17 @@ namespace HospitalRegionalIca.frm
             txtCategoria.Enabled = false;
 
 
+            if (UsuarioModel.id_rol==2)
+            {
+                btnCalcular.Enabled = false;
+                btnCalcular.Visible = false;
+                txtDescuento.Enabled = false;
+                txtDescuento.Visible = false;
+                lblDescuento.Visible = false;
+            }
+            
+
+
         }
 
         public void CargarDatos()
@@ -438,14 +449,17 @@ namespace HospitalRegionalIca.frm
                                 papeletaModel.minuto_inicio = 0;
                                 papeletaModel.hora_fin = 0;
                                 papeletaModel.minuto_fin = 0;
-                                //TimeSpan timeSpan = fechaFin - fechaInicio;
-                                //int dias = timeSpan.Days;
-                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                                //papeletaModel.remuneracion_dia = remuneracionDia;
-                                //decimal remuneracionHora = (remuneracionDia) / 8;
-                                //decimal remuneracionMinuto = remuneracionHora / 60;
-                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
-                                //papeletaModel.descuento = dias * remuneracionDia;
+                                papeletaModel.remuneracion_dia = Convert.ToDecimal(lblRDia.Text);
+                                papeletaModel.remuneracion_minuto = Convert.ToDecimal(lblRmin.Text);
+                                papeletaModel.descuento = Convert.ToDecimal(txtDescuento.Text);
+                            //TimeSpan timeSpan = fechaFin - fechaInicio;
+                            //int dias = timeSpan.Days;
+                            //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                            //papeletaModel.remuneracion_dia = remuneracionDia;
+                            //decimal remuneracionHora = (remuneracionDia) / 8;
+                            //decimal remuneracionMinuto = remuneracionHora / 60;
+                            //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                            //papeletaModel.descuento = dias * remuneracionDia;
                                 papeletaModel.sustento = txtSustento.Text;
                                 papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
                                 papeletaModel.estado = true;
@@ -474,17 +488,20 @@ namespace HospitalRegionalIca.frm
                                 papeletaModel.minuto_inicio = Convert.ToInt32(txtMinInicio.Text);
                                 papeletaModel.hora_fin = Convert.ToInt32(txtHoraFin.Text);
                                 papeletaModel.minuto_fin = Convert.ToInt32(txtMinFin.Text);
-                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                                //papeletaModel.remuneracion_dia = remuneracionDia;
-                                //decimal remuneracionHora = (remuneracionDia) / 8;
-                                //decimal remuneracion_hora = remuneracionHora;
-                                //decimal remuneracionMinuto = remuneracionHora / 60;
-                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                                papeletaModel.remuneracion_dia = Convert.ToDecimal(lblRDia.Text);
+                                papeletaModel.remuneracion_minuto = Convert.ToDecimal(lblRmin.Text);
+                                papeletaModel.descuento = Convert.ToDecimal(txtDescuento.Text);
+                            //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                            //papeletaModel.remuneracion_dia = remuneracionDia;
+                            //decimal remuneracionHora = (remuneracionDia) / 8;
+                            //decimal remuneracion_hora = remuneracionHora;
+                            //decimal remuneracionMinuto = remuneracionHora / 60;
+                            //papeletaModel.remuneracion_minuto = remuneracionMinuto;
 
-                                //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
-                                //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
-                                //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
-                                papeletaModel.sustento = txtSustento.Text;
+                            //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
+                            //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
+                            //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                            papeletaModel.sustento = txtSustento.Text;
                                 papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
                                 papeletaModel.estado = true;
                                 papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
@@ -519,7 +536,6 @@ namespace HospitalRegionalIca.frm
             else if (UsuarioModel.id_rol==2)
             {
                 
-                
                     int id_papeleta = papeletaModel.id_papeleta;
 
                     if (Update == false)
@@ -548,19 +564,22 @@ namespace HospitalRegionalIca.frm
                                 papeletaModel.minuto_inicio = 0;
                                 papeletaModel.hora_fin = 0;
                                 papeletaModel.minuto_fin = 0;
-                                //TimeSpan timeSpan = fechaFin - fechaInicio;
-                                //int dias = timeSpan.Days;
-                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                                //papeletaModel.remuneracion_dia = remuneracionDia;
-                                //decimal remuneracionHora = (remuneracionDia) / 8;
-                                //decimal remuneracionMinuto = remuneracionHora / 60;
-                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
-                                //papeletaModel.descuento = dias * remuneracionDia;
-                                papeletaModel.sustento = txtSustento.Text;
+                                papeletaModel.remuneracion_dia = 0;
+                                papeletaModel.remuneracion_minuto = 0;
+                                papeletaModel.descuento = 0;
+                            //TimeSpan timeSpan = fechaFin - fechaInicio;
+                            //int dias = timeSpan.Days;
+                            //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                            //papeletaModel.remuneracion_dia = remuneracionDia;
+                            //decimal remuneracionHora = (remuneracionDia) / 8;
+                            //decimal remuneracionMinuto = remuneracionHora / 60;
+                            //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                            //papeletaModel.descuento = dias * remuneracionDia;
+                            papeletaModel.sustento = txtSustento.Text;
                                 papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
                                 papeletaModel.estado = true;
                                 papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
-                                papeletaModel.id_solicitud = 1;
+                                papeletaModel.id_solicitud = 2;
                                 papeletaNegocio.AgregarPapeleta(papeletaModel);
                                 MessageBox.Show("Se guardo la papeleta Correctamente");
                                 Close();
@@ -583,21 +602,24 @@ namespace HospitalRegionalIca.frm
                                 papeletaModel.minuto_inicio = Convert.ToInt32(txtMinInicio.Text);
                                 papeletaModel.hora_fin = Convert.ToInt32(txtHoraFin.Text);
                                 papeletaModel.minuto_fin = Convert.ToInt32(txtMinFin.Text);
-                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                                //papeletaModel.remuneracion_dia = remuneracionDia;
-                                //decimal remuneracionHora = (remuneracionDia) / 8;
-                                //decimal remuneracion_hora = remuneracionHora;
-                                //decimal remuneracionMinuto = remuneracionHora / 60;
-                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                                papeletaModel.remuneracion_dia = 0;
+                                papeletaModel.remuneracion_minuto = 0;
+                                papeletaModel.descuento = 0;
+                            //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                            //papeletaModel.remuneracion_dia = remuneracionDia;
+                            //decimal remuneracionHora = (remuneracionDia) / 8;
+                            //decimal remuneracion_hora = remuneracionHora;
+                            //decimal remuneracionMinuto = remuneracionHora / 60;
+                            //papeletaModel.remuneracion_minuto = remuneracionMinuto;
 
-                                //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
-                                //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
-                                //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
-                                papeletaModel.sustento = txtSustento.Text;
+                            //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
+                            //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
+                            //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                            papeletaModel.sustento = txtSustento.Text;
                                 papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
                                 papeletaModel.estado = true;
                                 papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
-                                papeletaModel.id_solicitud = 1;
+                                papeletaModel.id_solicitud = 2;
 
                                 papeletaNegocio.AgregarPapeleta(papeletaModel);
 
@@ -647,6 +669,11 @@ namespace HospitalRegionalIca.frm
                                 papeletaModel.minuto_inicio = 0;
                                 papeletaModel.hora_fin = 0;
                                 papeletaModel.minuto_fin = 0;
+                                papeletaModel.remuneracion_dia = Convert.ToDecimal(lblRDia);
+                                papeletaModel.remuneracion_minuto = Convert.ToDecimal(lblRmin);
+                                papeletaModel.descuento = Convert.ToDecimal(txtDescuento.Text);
+                                
+                                
                                 //TimeSpan timeSpan = fechaFin - fechaInicio;
                                 //int dias = timeSpan.Days;
                                 //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
@@ -659,7 +686,7 @@ namespace HospitalRegionalIca.frm
                                 papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
                                 papeletaModel.estado = true;
                                 papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
-                                papeletaModel.id_solicitud = 1;
+                                papeletaModel.id_solicitud = Convert.ToInt32(lblIdSolicitud.Text);
                                 papeletaNegocio.EditarPapeleta(papeletaModel);
                                 MessageBox.Show("Se edito la papeleta Correctamente");
                                 Close();
@@ -683,23 +710,26 @@ namespace HospitalRegionalIca.frm
                                 papeletaModel.minuto_inicio = Convert.ToInt32(txtMinInicio.Text);
                                 papeletaModel.hora_fin = Convert.ToInt32(txtHoraFin.Text);
                                 papeletaModel.minuto_fin = Convert.ToInt32(txtMinFin.Text);
-                                //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                                //papeletaModel.remuneracion_dia = remuneracionDia;
-                                //decimal remuneracionHora = (remuneracionDia) / 8;
-                                //decimal remuneracion_hora = remuneracionHora;
-                                //decimal remuneracionMinuto = remuneracionHora / 60;
-                                //papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                                papeletaModel.remuneracion_dia = Convert.ToDecimal(lblRDia.Text);
+                                papeletaModel.remuneracion_minuto = Convert.ToDecimal(lblRmin.Text);
+                                papeletaModel.descuento = Convert.ToDecimal(txtDescuento.Text);
+                            //decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                            //papeletaModel.remuneracion_dia = remuneracionDia;
+                            //decimal remuneracionHora = (remuneracionDia) / 8;
+                            //decimal remuneracion_hora = remuneracionHora;
+                            //decimal remuneracionMinuto = remuneracionHora / 60;
+                            //papeletaModel.remuneracion_minuto = remuneracionMinuto;
 
-                                //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
-                                //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
-                                //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                            //int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
+                            //int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
+                            //papeletaModel.descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
                                 papeletaModel.sustento = txtSustento.Text;
                                 papeletaModel.fecha_registro = dtpFechaRegistro.Value.Date;
                                 papeletaModel.estado = true;
                                 papeletaModel.id_turno = Convert.ToInt32(cmbTurno.SelectedValue);
-                                papeletaModel.id_solicitud = 1;
+                                papeletaModel.id_solicitud = Convert.ToInt32(lblIdSolicitud.Text);
 
-                                papeletaNegocio.EditarPapeleta(papeletaModel);
+                            papeletaNegocio.EditarPapeleta(papeletaModel);
 
 
                                 MessageBox.Show("Se edito la papeleta Correctamente");
@@ -724,7 +754,11 @@ namespace HospitalRegionalIca.frm
                     }
                 }
 
-            }
+
+
+            
+
+        }
 
             
         
@@ -733,113 +767,178 @@ namespace HospitalRegionalIca.frm
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-           
 
-            if (txtHoraInicio.Text!="" && txtMinInicio.Text!="" && txtHoraFin.Text!="" && txtMinFin.Text!="")
+
+            //if (txtHoraInicio.Text!="" && txtMinInicio.Text!="" && txtHoraFin.Text!="" && txtMinFin.Text!="")
+            //{
+
+            //}
+
+
+            //CALCULAR PARA EL ROL ADMINISTRADOR 
+
+
+            if (UsuarioModel.id_rol==1)
             {
 
-            }
-
-
-            if (lblRemuneracion.Text=="Remuneracion")
+                if (lblRemuneracion.Text == "Remuneracion")
                 {
-                MessageBox.Show("Ingrese Trabajador");
+                    MessageBox.Show("Ingrese Trabajador");
                 }
-            else if (gpDia.Enabled == true)
-                {
-                        if (Convert.ToInt32(lblIdCategoria.Text)==3)
-                        {
-                            DateTime fechaInicio = dtpFechaInicial.Value.Date;
-                            DateTime fechaFin = dtpFechaFinal.Value.Date;
-                            TimeSpan timeSpan = fechaFin - fechaInicio;
-                            int dias = timeSpan.Days;
-                            decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                            papeletaModel.remuneracion_dia = remuneracionDia;
-                            decimal remuneracionHora = (remuneracionDia) / 8;
-                            decimal remuneracionMinuto = remuneracionHora / 60;
-                            papeletaModel.remuneracion_minuto = remuneracionMinuto;
-                            decimal descuento = dias * remuneracionDia;
-                            descuento = decimal.Round(descuento, 2);
-                            txtDescuento.Text = (descuento).ToString();
-                            papeletaModel.remuneracion_minuto = remuneracionMinuto;
-                            papeletaModel.descuento = descuento;
-                        }
-                        else
-                        {
-                            DateTime fechaInicio = dtpFechaInicial.Value.Date;
-                            DateTime fechaFin = dtpFechaFinal.Value.Date;
-                            TimeSpan timeSpan = fechaFin - fechaInicio;
-                            int dias = timeSpan.Days;
-                            decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
-                            papeletaModel.remuneracion_dia = remuneracionDia;
-                            decimal remuneracionHora = (remuneracionDia) / 6;
-                            decimal remuneracionMinuto = remuneracionHora / 60;
-                            papeletaModel.remuneracion_minuto = remuneracionMinuto;
-                            decimal descuento = dias * remuneracionDia;
-                            descuento = decimal.Round(descuento, 2);
-                            txtDescuento.Text = (descuento).ToString();
-                            papeletaModel.remuneracion_minuto = remuneracionMinuto;
-                            papeletaModel.descuento = descuento;
-                        }           
-                
-                
-               
-            }
-            else if (gpHora.Enabled == true)
-                {
-                if (txtHoraInicio.Text != "" && txtMinInicio.Text != "" && txtHoraFin.Text != "" && txtMinFin.Text != "")
+                else if (gpDia.Enabled == true)
                 {
                     if (Convert.ToInt32(lblIdCategoria.Text) == 3)
                     {
+                        DateTime fechaInicio = dtpFechaInicial.Value.Date;
+                        DateTime fechaFin = dtpFechaFinal.Value.Date;
+                        TimeSpan timeSpan = fechaFin - fechaInicio;
+                        int dias = timeSpan.Days;
                         decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
                         papeletaModel.remuneracion_dia = remuneracionDia;
                         decimal remuneracionHora = (remuneracionDia) / 8;
-                        decimal remuneracion_hora = remuneracionHora;
                         decimal remuneracionMinuto = remuneracionHora / 60;
                         papeletaModel.remuneracion_minuto = remuneracionMinuto;
-                        int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
-                        int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
-                        decimal descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                        decimal descuento = dias * remuneracionDia;
                         descuento = decimal.Round(descuento, 2);
                         txtDescuento.Text = (descuento).ToString();
+                        papeletaModel.remuneracion_minuto = remuneracionMinuto;
                         papeletaModel.descuento = descuento;
                     }
                     else
                     {
-
-
+                        DateTime fechaInicio = dtpFechaInicial.Value.Date;
+                        DateTime fechaFin = dtpFechaFinal.Value.Date;
+                        TimeSpan timeSpan = fechaFin - fechaInicio;
+                        int dias = timeSpan.Days;
                         decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
                         papeletaModel.remuneracion_dia = remuneracionDia;
                         decimal remuneracionHora = (remuneracionDia) / 6;
-                        decimal remuneracion_hora = remuneracionHora;
                         decimal remuneracionMinuto = remuneracionHora / 60;
                         papeletaModel.remuneracion_minuto = remuneracionMinuto;
-                        int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
-                        int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
-                        decimal descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                        decimal descuento = dias * remuneracionDia;
                         descuento = decimal.Round(descuento, 2);
                         txtDescuento.Text = (descuento).ToString();
+                        papeletaModel.remuneracion_minuto = remuneracionMinuto;
                         papeletaModel.descuento = descuento;
                     }
 
 
 
                 }
-                else MessageBox.Show("campos incompletos");
+                else if (gpHora.Enabled == true)
+                {
+                    if (txtHoraInicio.Text != "" && txtMinInicio.Text != "" && txtHoraFin.Text != "" && txtMinFin.Text != "")
+                    {
+                        if (Convert.ToInt32(lblIdCategoria.Text) == 3)
+                        {
+                            decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                            papeletaModel.remuneracion_dia = remuneracionDia;
+                            decimal remuneracionHora = (remuneracionDia) / 8;
+                            decimal remuneracion_hora = remuneracionHora;
+                            decimal remuneracionMinuto = remuneracionHora / 60;
+                            papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                            int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
+                            int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
+                            decimal descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                            descuento = decimal.Round(descuento, 2);
+                            txtDescuento.Text = (descuento).ToString();
+                            papeletaModel.descuento = descuento;
+                        }
+                        else
+                        {
+
+
+                            decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
+                            papeletaModel.remuneracion_dia = remuneracionDia;
+                            decimal remuneracionHora = (remuneracionDia) / 6;
+                            decimal remuneracion_hora = remuneracionHora;
+                            decimal remuneracionMinuto = remuneracionHora / 60;
+                            papeletaModel.remuneracion_minuto = remuneracionMinuto;
+                            int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
+                            int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
+                            decimal descuento = (hora_Fin_enMin - hora_Inicio_enMin) * remuneracionMinuto;
+                            descuento = decimal.Round(descuento, 2);
+                            txtDescuento.Text = (descuento).ToString();
+                            papeletaModel.descuento = descuento;
+                        }
+
+
+
+                    }
+                    else MessageBox.Show("campos incompletos");
+                }
+
+
+
+                else
+                {
+                    MessageBox.Show("Campos Incompletos");
+                }
+
             }
 
-                
+            //CALCULAR PARA EL ROL USUARIO 
+            //else if (UsuarioModel.id_rol == 2)
+            //{
+            //    if (lblRemuneracion.Text == "Remuneracion")
+            //    {
+            //        MessageBox.Show("Ingrese Trabajador");
+            //    }
+            //    else if (gpDia.Enabled == true)
+            //    {
+            //        if (Convert.ToInt32(lblIdCategoria.Text) == 3)
+            //        {
+            //            //papeletaModel.remuneracion_dia = ;
+            //            //papeletaModel.remuneracion_minuto = ;
+            //            //papeletaModel.descuento = ;
 
-            else
-            {
-                MessageBox.Show("Campos Incompletos");
-            }
-               
-          
-           
+
+            //        }
+            //        else
+            //        {
+                        
+                        
+            //        }
+
+
+
+            //    }
+            //    else if (gpHora.Enabled == true)
+            //    {
+            //        if (txtHoraInicio.Text != "" && txtMinInicio.Text != "" && txtHoraFin.Text != "" && txtMinFin.Text != "")
+            //        {
+            //            if (Convert.ToInt32(lblIdCategoria.Text) == 3)
+            //            {
+                            
+            //            }
+            //            else
+            //            {
+
+            //            }
+
+
+
+            //        }
+            //        else MessageBox.Show("campos incompletos");
+            //    }
+
+
+
+            //    else
+            //    {
+            //        MessageBox.Show("Campos Incompletos");
+            //    }
+
+
+            //}
+
+
+
         }
 
-       
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -27,6 +27,10 @@ namespace HospitalRegionalIca.frm
                 MostrarPapeleta(/*UsuarioModel.id_departamento*/);
 
             }
+            else if (UsuarioModel.id_rol==2)
+            {
+                MostrarPapeletaUsuario(UsuarioModel.id_departamento);
+            }
             
             
         }
@@ -53,8 +57,11 @@ namespace HospitalRegionalIca.frm
             }
             else if(UsuarioModel.id_rol==2)
             {
-                //codigo
-
+                frmAddPapeleta frm = new frmAddPapeleta();
+                frm.ShowDialog();
+                frm.Update = false;
+                MostrarPapeletaUsuario(UsuarioModel.id_departamento);
+                
             }
 
            
@@ -71,30 +78,49 @@ namespace HospitalRegionalIca.frm
 
         }
 
+        public void MostrarPapeletaUsuario(int id_departamento)
+        {
+            PapeletaNegocio papeleta = new PapeletaNegocio();
+            dataGridViewPapeleta.DataSource = papeleta.ListarPapeletasUsuario(id_departamento);
+        }
+
         public void FiltrarPapeleta(string filtro)
         {
-
-            if (txtBuscar.Text=="")
+            if (UsuarioModel.id_rol==1)
             {
-                MostrarPapeleta();
+                if (txtBuscar.Text == "")
+                {
+                    MostrarPapeleta();
+                }
+                else
+                {
+                    PapeletaNegocio papeleta = new PapeletaNegocio();
+                    dataGridViewPapeleta.DataSource = papeleta.BuscarPapeletas(filtro);
+                }
             }
-            else
+          
+
+        }
+        public void FiltrarPapeletaUsuario(string filtro)
+        {
+            if (UsuarioModel.id_rol == 2)
             {
-                PapeletaNegocio papeleta = new PapeletaNegocio();
-                dataGridViewPapeleta.DataSource = papeleta.BuscarPapeletas(filtro);
+                if (txtBuscar.Text == "")
+                {
+                    MostrarPapeletaUsuario(UsuarioModel.id_departamento);
+                }
+                else
+                {
+                    PapeletaNegocio papeleta = new PapeletaNegocio();
+                    dataGridViewPapeleta.DataSource = papeleta.BuscarPapeletaUsuario(filtro, UsuarioModel.id_departamento);
+                }
             }
-
-           
-
-
-
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (UsuarioModel.id_rol==1)
-            {
+            //if (UsuarioModel.id_rol==1)
+            
                 if (dataGridViewPapeleta.SelectedRows.Count > 0)
                 {
 
@@ -142,18 +168,21 @@ namespace HospitalRegionalIca.frm
                     frm.cmbMotivo.Text = dataGridViewPapeleta.CurrentRow.Cells["motivo"].Value.ToString();
                     frm.txtDescuento.Text = dataGridViewPapeleta.CurrentRow.Cells["descuento"].Value.ToString();
                     frm.txtSustento.Text= dataGridViewPapeleta.CurrentRow.Cells["sustento"].Value.ToString();
+                    frm.lblIdSolicitud.Text = dataGridViewPapeleta.CurrentRow.Cells["id_solicitud"].Value.ToString();
+                    frm.lblRDia.Text= dataGridViewPapeleta.CurrentRow.Cells["remuneracion_dia"].Value.ToString();
+                    frm.lblRmin.Text= dataGridViewPapeleta.CurrentRow.Cells["remuneracion_minuto"].Value.ToString();
 
-                    frm.ShowDialog();
+                frm.ShowDialog();
                     MostrarPapeleta();
 
                 }
                 else MessageBox.Show("Seleccione la fila de la papeleta");
 
-            }
-            else if(UsuarioModel.id_rol==2)
-            {
-                //codigo
-            }
+            
+            //else if(UsuarioModel.id_rol==2)
+            //{
+            //    //codigo
+            //}
             
         }
 
@@ -189,7 +218,15 @@ namespace HospitalRegionalIca.frm
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
 
-            FiltrarPapeleta(txtBuscar.Text);
+            if (UsuarioModel.id_rol==1)
+            {
+                FiltrarPapeleta(txtBuscar.Text);
+            }
+            else if(UsuarioModel.id_rol==2)
+            {
+                FiltrarPapeletaUsuario(txtBuscar.Text);
+            }
+           
         }
 
         private void dataGridViewPapeleta_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

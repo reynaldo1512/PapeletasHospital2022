@@ -68,7 +68,7 @@ namespace HospitalRegionalIca.frm
             this.lblIdTrabajador = new System.Windows.Forms.Label();
             this.lblRemuneracion = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lblDescuento = new System.Windows.Forms.Label();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.lblIdMaximo = new System.Windows.Forms.Label();
             this.lblIdCategoria = new System.Windows.Forms.Label();
@@ -77,6 +77,9 @@ namespace HospitalRegionalIca.frm
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtIdPapeleta = new System.Windows.Forms.TextBox();
+            this.lblIdSolicitud = new System.Windows.Forms.Label();
+            this.lblRDia = new System.Windows.Forms.Label();
+            this.lblRmin = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gpDia.SuspendLayout();
             this.gpHora.SuspendLayout();
@@ -454,7 +457,7 @@ namespace HospitalRegionalIca.frm
             this.lblIdTrabajador.AutoSize = true;
             this.lblIdTrabajador.BackColor = System.Drawing.Color.Transparent;
             this.lblIdTrabajador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lblIdTrabajador.Location = new System.Drawing.Point(972, 125);
+            this.lblIdTrabajador.Location = new System.Drawing.Point(975, 145);
             this.lblIdTrabajador.Name = "lblIdTrabajador";
             this.lblIdTrabajador.Size = new System.Drawing.Size(102, 20);
             this.lblIdTrabajador.TabIndex = 31;
@@ -466,7 +469,7 @@ namespace HospitalRegionalIca.frm
             this.lblRemuneracion.AutoSize = true;
             this.lblRemuneracion.BackColor = System.Drawing.Color.Transparent;
             this.lblRemuneracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lblRemuneracion.Location = new System.Drawing.Point(972, 145);
+            this.lblRemuneracion.Location = new System.Drawing.Point(975, 165);
             this.lblRemuneracion.Name = "lblRemuneracion";
             this.lblRemuneracion.Size = new System.Drawing.Size(117, 20);
             this.lblRemuneracion.TabIndex = 32;
@@ -479,17 +482,18 @@ namespace HospitalRegionalIca.frm
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(126, 22);
             this.txtDescuento.TabIndex = 62;
+            this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
             // 
-            // label17
+            // lblDescuento
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label17.Location = new System.Drawing.Point(375, 615);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(114, 20);
-            this.label17.TabIndex = 63;
-            this.label17.Text = "DESCUENTO";
+            this.lblDescuento.AutoSize = true;
+            this.lblDescuento.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblDescuento.Location = new System.Drawing.Point(375, 615);
+            this.lblDescuento.Name = "lblDescuento";
+            this.lblDescuento.Size = new System.Drawing.Size(114, 20);
+            this.lblDescuento.TabIndex = 63;
+            this.lblDescuento.Text = "DESCUENTO";
             // 
             // btnCalcular
             // 
@@ -509,7 +513,7 @@ namespace HospitalRegionalIca.frm
             this.lblIdMaximo.AutoSize = true;
             this.lblIdMaximo.BackColor = System.Drawing.Color.Transparent;
             this.lblIdMaximo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lblIdMaximo.Location = new System.Drawing.Point(972, 181);
+            this.lblIdMaximo.Location = new System.Drawing.Point(975, 201);
             this.lblIdMaximo.Name = "lblIdMaximo";
             this.lblIdMaximo.Size = new System.Drawing.Size(80, 20);
             this.lblIdMaximo.TabIndex = 65;
@@ -521,7 +525,7 @@ namespace HospitalRegionalIca.frm
             this.lblIdCategoria.AutoSize = true;
             this.lblIdCategoria.BackColor = System.Drawing.Color.Transparent;
             this.lblIdCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lblIdCategoria.Location = new System.Drawing.Point(972, 215);
+            this.lblIdCategoria.Location = new System.Drawing.Point(975, 235);
             this.lblIdCategoria.Name = "lblIdCategoria";
             this.lblIdCategoria.Size = new System.Drawing.Size(94, 20);
             this.lblIdCategoria.TabIndex = 66;
@@ -575,12 +579,49 @@ namespace HospitalRegionalIca.frm
             this.txtIdPapeleta.TabIndex = 75;
             this.txtIdPapeleta.Visible = false;
             // 
+            // lblIdSolicitud
+            // 
+            this.lblIdSolicitud.AutoSize = true;
+            this.lblIdSolicitud.BackColor = System.Drawing.Color.Transparent;
+            this.lblIdSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblIdSolicitud.Location = new System.Drawing.Point(975, 266);
+            this.lblIdSolicitud.Name = "lblIdSolicitud";
+            this.lblIdSolicitud.Size = new System.Drawing.Size(86, 20);
+            this.lblIdSolicitud.TabIndex = 76;
+            this.lblIdSolicitud.Text = "IdSolicitud";
+            this.lblIdSolicitud.Visible = false;
+            // 
+            // lblRDia
+            // 
+            this.lblRDia.AutoSize = true;
+            this.lblRDia.BackColor = System.Drawing.Color.Transparent;
+            this.lblRDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblRDia.Location = new System.Drawing.Point(975, 300);
+            this.lblRDia.Name = "lblRDia";
+            this.lblRDia.Size = new System.Drawing.Size(47, 20);
+            this.lblRDia.TabIndex = 77;
+            this.lblRDia.Text = "RDia";
+            // 
+            // lblRmin
+            // 
+            this.lblRmin.AutoSize = true;
+            this.lblRmin.BackColor = System.Drawing.Color.Transparent;
+            this.lblRmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblRmin.Location = new System.Drawing.Point(975, 335);
+            this.lblRmin.Name = "lblRmin";
+            this.lblRmin.Size = new System.Drawing.Size(71, 20);
+            this.lblRmin.TabIndex = 78;
+            this.lblRmin.Text = "RMinuto";
+            // 
             // frmAddPapeleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::HospitalRegionalIca.Properties.Resources.main_bg08;
             this.ClientSize = new System.Drawing.Size(1154, 1055);
+            this.Controls.Add(this.lblRmin);
+            this.Controls.Add(this.lblRDia);
+            this.Controls.Add(this.lblIdSolicitud);
             this.Controls.Add(this.txtIdPapeleta);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label16);
@@ -590,7 +631,7 @@ namespace HospitalRegionalIca.frm
             this.Controls.Add(this.lblIdMaximo);
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.txtDescuento);
-            this.Controls.Add(this.label17);
+            this.Controls.Add(this.lblDescuento);
             this.Controls.Add(this.lblRemuneracion);
             this.Controls.Add(this.lblIdTrabajador);
             this.Controls.Add(this.btnGuardar);
@@ -645,8 +686,7 @@ namespace HospitalRegionalIca.frm
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button btnCalcular;
+        private System.Windows.Forms.Label lblDescuento;
         public System.Windows.Forms.Label lblIdMaximo;
         public System.Windows.Forms.Label lblIdCategoria;
         private System.Windows.Forms.Label label18;
@@ -677,5 +717,9 @@ namespace HospitalRegionalIca.frm
         public System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label16;
         public System.Windows.Forms.TextBox txtIdPapeleta;
+        public System.Windows.Forms.Label lblIdSolicitud;
+        public System.Windows.Forms.Button btnCalcular;
+        public System.Windows.Forms.Label lblRDia;
+        public System.Windows.Forms.Label lblRmin;
     }
 }

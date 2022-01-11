@@ -224,16 +224,18 @@ namespace HospitalRegionalIca
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            if (UsuarioModel.id_rol == 1)
-            {
-                AbriFormPapeleta(new frmPapeleta());
-            }
 
-            else if (UsuarioModel.id_rol == 2)
-            {
-                AbriFormPapeleta(new FormAddPapeletaUsuario());
-            }
-            else MessageBox.Show("No se encuentra el rol al usuario");
+            AbriFormPapeleta(new frmPapeleta());
+            //if (UsuarioModel.id_rol == 1)
+            //{
+            //    AbriFormPapeleta(new frmPapeleta());
+            //}
+
+            //else if (UsuarioModel.id_rol == 2)
+            //{
+            //    AbriFormPapeleta(new FormAddPapeletaUsuario());
+            //}
+            //else MessageBox.Show("No se encuentra el rol al usuario");
           
         }
     }
