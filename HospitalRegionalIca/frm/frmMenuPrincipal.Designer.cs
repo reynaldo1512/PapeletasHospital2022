@@ -179,7 +179,7 @@ namespace HospitalRegionalIca
             this.panel3.Location = new System.Drawing.Point(0, 85);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(254, 715);
+            this.panel3.Size = new System.Drawing.Size(316, 715);
             this.panel3.TabIndex = 2;
             // 
             // btnInicio
@@ -314,10 +314,10 @@ namespace HospitalRegionalIca
             this.panel4.Controls.Add(this.lblFecha);
             this.panel4.Controls.Add(this.lblHora);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(254, 751);
+            this.panel4.Location = new System.Drawing.Point(316, 751);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1479, 49);
+            this.panel4.Size = new System.Drawing.Size(1417, 49);
             this.panel4.TabIndex = 3;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -387,10 +387,10 @@ namespace HospitalRegionalIca
             // 
             this.pContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
             this.pContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pContenedor.Location = new System.Drawing.Point(254, 85);
+            this.pContenedor.Location = new System.Drawing.Point(316, 85);
             this.pContenedor.Margin = new System.Windows.Forms.Padding(4);
             this.pContenedor.Name = "pContenedor";
-            this.pContenedor.Size = new System.Drawing.Size(1479, 666);
+            this.pContenedor.Size = new System.Drawing.Size(1417, 666);
             this.pContenedor.TabIndex = 4;
             this.pContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.pContenedor_Paint);
             // 
@@ -422,7 +422,7 @@ namespace HospitalRegionalIca
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1733, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1733, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 

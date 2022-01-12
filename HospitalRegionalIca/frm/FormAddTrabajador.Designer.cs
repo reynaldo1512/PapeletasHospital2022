@@ -31,7 +31,9 @@ namespace HospitalRegionalIca
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddTrabajador));
             this.header = new System.Windows.Forms.Panel();
+            this.closeFormCategory = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,8 +66,6 @@ namespace HospitalRegionalIca
             this.cmbHorario = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
-            this.closeFormCategory = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeFormCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,8 +82,20 @@ namespace HospitalRegionalIca
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Margin = new System.Windows.Forms.Padding(4);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(1090, 50);
+            this.header.Size = new System.Drawing.Size(1083, 50);
             this.header.TabIndex = 3;
+            // 
+            // closeFormCategory
+            // 
+            this.closeFormCategory.Image = ((System.Drawing.Image)(resources.GetObject("closeFormCategory.Image")));
+            this.closeFormCategory.Location = new System.Drawing.Point(1042, 12);
+            this.closeFormCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.closeFormCategory.Name = "closeFormCategory";
+            this.closeFormCategory.Size = new System.Drawing.Size(33, 31);
+            this.closeFormCategory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closeFormCategory.TabIndex = 2;
+            this.closeFormCategory.TabStop = false;
+            this.closeFormCategory.Click += new System.EventHandler(this.closeFormCategory_Click);
             // 
             // label1
             // 
@@ -96,6 +108,17 @@ namespace HospitalRegionalIca
             this.label1.Size = new System.Drawing.Size(187, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "NUEVO TRABAJADOR";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -271,7 +294,7 @@ namespace HospitalRegionalIca
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(181, 666);
+            this.button1.Location = new System.Drawing.Point(183, 660);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(624, 49);
             this.button1.TabIndex = 29;
@@ -352,7 +375,7 @@ namespace HospitalRegionalIca
             this.cmbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbCargo.ForeColor = System.Drawing.Color.Black;
             this.cmbCargo.FormattingEnabled = true;
-            this.cmbCargo.Location = new System.Drawing.Point(777, 205);
+            this.cmbCargo.Location = new System.Drawing.Point(797, 202);
             this.cmbCargo.Name = "cmbCargo";
             this.cmbCargo.Size = new System.Drawing.Size(270, 28);
             this.cmbCargo.TabIndex = 39;
@@ -364,7 +387,7 @@ namespace HospitalRegionalIca
             this.cmbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbCategoria.ForeColor = System.Drawing.Color.Black;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(776, 275);
+            this.cmbCategoria.Location = new System.Drawing.Point(796, 273);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(271, 28);
             this.cmbCategoria.TabIndex = 40;
@@ -377,7 +400,7 @@ namespace HospitalRegionalIca
             this.cmbPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbPersonal.ForeColor = System.Drawing.Color.Black;
             this.cmbPersonal.FormattingEnabled = true;
-            this.cmbPersonal.Location = new System.Drawing.Point(777, 339);
+            this.cmbPersonal.Location = new System.Drawing.Point(796, 328);
             this.cmbPersonal.Name = "cmbPersonal";
             this.cmbPersonal.Size = new System.Drawing.Size(270, 28);
             this.cmbPersonal.TabIndex = 41;
@@ -398,7 +421,7 @@ namespace HospitalRegionalIca
             // dtpfechaNacimiento
             // 
             this.dtpfechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpfechaNacimiento.Location = new System.Drawing.Point(777, 129);
+            this.dtpfechaNacimiento.Location = new System.Drawing.Point(796, 126);
             this.dtpfechaNacimiento.Name = "dtpfechaNacimiento";
             this.dtpfechaNacimiento.Size = new System.Drawing.Size(270, 22);
             this.dtpfechaNacimiento.TabIndex = 45;
@@ -408,9 +431,9 @@ namespace HospitalRegionalIca
             this.cmbDepartamento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbDepartamento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbDepartamento.FormattingEnabled = true;
-            this.cmbDepartamento.Location = new System.Drawing.Point(774, 403);
+            this.cmbDepartamento.Location = new System.Drawing.Point(722, 399);
             this.cmbDepartamento.Name = "cmbDepartamento";
-            this.cmbDepartamento.Size = new System.Drawing.Size(273, 24);
+            this.cmbDepartamento.Size = new System.Drawing.Size(344, 24);
             this.cmbDepartamento.TabIndex = 46;
             // 
             // txtId
@@ -428,7 +451,7 @@ namespace HospitalRegionalIca
             this.cmbHorario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbHorario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbHorario.FormattingEnabled = true;
-            this.cmbHorario.Location = new System.Drawing.Point(777, 540);
+            this.cmbHorario.Location = new System.Drawing.Point(793, 540);
             this.cmbHorario.Name = "cmbHorario";
             this.cmbHorario.Size = new System.Drawing.Size(273, 24);
             this.cmbHorario.TabIndex = 49;
@@ -449,33 +472,10 @@ namespace HospitalRegionalIca
             // dtpFechaIngreso
             // 
             this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(777, 465);
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(796, 465);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Size = new System.Drawing.Size(270, 22);
             this.dtpFechaIngreso.TabIndex = 51;
-            // 
-            // closeFormCategory
-            // 
-            this.closeFormCategory.Image = ((System.Drawing.Image)(resources.GetObject("closeFormCategory.Image")));
-            this.closeFormCategory.Location = new System.Drawing.Point(1042, 12);
-            this.closeFormCategory.Margin = new System.Windows.Forms.Padding(4);
-            this.closeFormCategory.Name = "closeFormCategory";
-            this.closeFormCategory.Size = new System.Drawing.Size(33, 31);
-            this.closeFormCategory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.closeFormCategory.TabIndex = 2;
-            this.closeFormCategory.TabStop = false;
-            this.closeFormCategory.Click += new System.EventHandler(this.closeFormCategory_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 31);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // FormAddTrabajador
             // 
@@ -483,7 +483,7 @@ namespace HospitalRegionalIca
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::HospitalRegionalIca.Properties.Resources.main_bg08;
-            this.ClientSize = new System.Drawing.Size(1090, 744);
+            this.ClientSize = new System.Drawing.Size(1083, 815);
             this.Controls.Add(this.dtpFechaIngreso);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.cmbHorario);

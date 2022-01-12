@@ -103,8 +103,7 @@ namespace HospitalRegionalIca
               
                     try
                 {
-                    if (UsuarioModel.id_departamento == Convert.ToInt32(cmbDepartamento.SelectedValue))
-                    {
+                    
                         trabajadorModel.DNI = txtDNI.Text;
                         trabajadorModel.primer_nombre = txtPnombre.Text;
                         trabajadorModel.segundo_nombre = txtSnombre.Text;
@@ -126,8 +125,8 @@ namespace HospitalRegionalIca
                         trabajadorNegocio.AgregarTrabajador(trabajadorModel);
                         MessageBox.Show("se guardo el trabajador correctamente");
                         Close();
-                    }
-                    else MessageBox.Show("No se pudo guardar al trabajador , Departamento Erroneo");
+                    
+                    
                        
 
 
