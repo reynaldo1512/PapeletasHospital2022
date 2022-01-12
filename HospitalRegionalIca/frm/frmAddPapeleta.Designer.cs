@@ -601,6 +601,7 @@ namespace HospitalRegionalIca.frm
             this.lblRDia.Size = new System.Drawing.Size(47, 20);
             this.lblRDia.TabIndex = 77;
             this.lblRDia.Text = "RDia";
+            this.lblRDia.Visible = false;
             // 
             // lblRmin
             // 
@@ -612,6 +613,7 @@ namespace HospitalRegionalIca.frm
             this.lblRmin.Size = new System.Drawing.Size(71, 20);
             this.lblRmin.TabIndex = 78;
             this.lblRmin.Text = "RMinuto";
+            this.lblRmin.Visible = false;
             // 
             // frmAddPapeleta
             // 

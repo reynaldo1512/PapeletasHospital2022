@@ -54,6 +54,7 @@ namespace HospitalRegionalIca.frm
                 frm.ShowDialog();
                 frm.Update = false;
                 MostrarPapeleta(/*UsuarioModel.id_departamento*/);
+                
             }
             else if(UsuarioModel.id_rol==2)
             {
@@ -173,7 +174,17 @@ namespace HospitalRegionalIca.frm
                     frm.lblRmin.Text= dataGridViewPapeleta.CurrentRow.Cells["remuneracion_minuto"].Value.ToString();
 
                 frm.ShowDialog();
+
+
+                if (UsuarioModel.id_rol==1)
+                {
                     MostrarPapeleta();
+                }
+                else if (UsuarioModel.id_rol==2)
+                {
+                    MostrarPapeletaUsuario(UsuarioModel.id_departamento);
+                }
+                
 
                 }
                 else MessageBox.Show("Seleccione la fila de la papeleta");

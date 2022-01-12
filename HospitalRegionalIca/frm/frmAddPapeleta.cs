@@ -669,8 +669,8 @@ namespace HospitalRegionalIca.frm
                                 papeletaModel.minuto_inicio = 0;
                                 papeletaModel.hora_fin = 0;
                                 papeletaModel.minuto_fin = 0;
-                                papeletaModel.remuneracion_dia = Convert.ToDecimal(lblRDia);
-                                papeletaModel.remuneracion_minuto = Convert.ToDecimal(lblRmin);
+                                papeletaModel.remuneracion_dia = Convert.ToDecimal(lblRDia.Text);
+                                papeletaModel.remuneracion_minuto = Convert.ToDecimal(lblRmin.Text);
                                 papeletaModel.descuento = Convert.ToDecimal(txtDescuento.Text);
                                 
                                 
