@@ -797,6 +797,8 @@ namespace HospitalRegionalIca.frm
                         papeletaModel.remuneracion_dia = remuneracionDia;
                         decimal remuneracionHora = (remuneracionDia) / 8;
                         decimal remuneracionMinuto = remuneracionHora / 60;
+                        lblRDia.Text = remuneracionDia.ToString();
+                        lblRmin.Text = remuneracionMinuto.ToString();
                         papeletaModel.remuneracion_minuto = remuneracionMinuto;
                         decimal descuento = dias * remuneracionDia;
                         descuento = decimal.Round(descuento, 2);
@@ -814,6 +816,8 @@ namespace HospitalRegionalIca.frm
                         papeletaModel.remuneracion_dia = remuneracionDia;
                         decimal remuneracionHora = (remuneracionDia) / 6;
                         decimal remuneracionMinuto = remuneracionHora / 60;
+                        lblRDia.Text = remuneracionDia.ToString();
+                        lblRmin.Text = remuneracionMinuto.ToString();
                         papeletaModel.remuneracion_minuto = remuneracionMinuto;
                         decimal descuento = dias * remuneracionDia;
                         descuento = decimal.Round(descuento, 2);
@@ -834,8 +838,10 @@ namespace HospitalRegionalIca.frm
                             decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
                             papeletaModel.remuneracion_dia = remuneracionDia;
                             decimal remuneracionHora = (remuneracionDia) / 8;
-                            decimal remuneracion_hora = remuneracionHora;
+                            //decimal remuneracion_hora = remuneracionHora;
                             decimal remuneracionMinuto = remuneracionHora / 60;
+                            lblRDia.Text = remuneracionDia.ToString();
+                            lblRmin.Text = remuneracionMinuto.ToString();
                             papeletaModel.remuneracion_minuto = remuneracionMinuto;
                             int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
                             int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
@@ -851,8 +857,10 @@ namespace HospitalRegionalIca.frm
                             decimal remuneracionDia = Convert.ToDecimal(lblRemuneracion.Text) / 30;
                             papeletaModel.remuneracion_dia = remuneracionDia;
                             decimal remuneracionHora = (remuneracionDia) / 6;
-                            decimal remuneracion_hora = remuneracionHora;
+                            //decimal remuneracion_hora = remuneracionHora;
                             decimal remuneracionMinuto = remuneracionHora / 60;
+                            lblRDia.Text = remuneracionDia.ToString();
+                            lblRmin.Text = remuneracionMinuto.ToString();
                             papeletaModel.remuneracion_minuto = remuneracionMinuto;
                             int hora_Inicio_enMin = (Convert.ToInt32(txtHoraInicio.Text) * 60) + Convert.ToInt32(txtMinInicio.Text);
                             int hora_Fin_enMin = (Convert.ToInt32(txtHoraFin.Text) * 60) + Convert.ToInt32(txtMinFin.Text);
