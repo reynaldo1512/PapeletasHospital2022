@@ -124,18 +124,20 @@ namespace HospitalRegionalIca
             timer1.Enabled = true;
             ObtenerDatosUsuario();
             
-            if (UsuarioModel.id_rol==1)
+           
+
+            if(UsuarioModel.id_rol==1)
             {
                 btnPapeleta.Enabled = true;
                 btnTrabajador.Enabled = true;
-
             }
-            else if(UsuarioModel.id_rol==2)
+            else if (UsuarioModel.id_rol == 2)
             {
                 btnPapeleta.Enabled = true;
                 btnTrabajador.Enabled = false;
+
             }
-       
+
 
         }
 
@@ -237,6 +239,12 @@ namespace HospitalRegionalIca
             //}
             //else MessageBox.Show("No se encuentra el rol al usuario");
           
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Esta cerrando la aplicacion ?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
         }
     }
 }

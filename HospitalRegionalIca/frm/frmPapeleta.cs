@@ -54,7 +54,9 @@ namespace HospitalRegionalIca.frm
                 frm.ShowDialog();
                 frm.Update = false;
                 MostrarPapeleta(/*UsuarioModel.id_departamento*/);
-                
+                radioButton1.Checked = false;
+               
+
             }
             else if(UsuarioModel.id_rol==2)
             {
@@ -63,6 +65,7 @@ namespace HospitalRegionalIca.frm
                 frm.Update = false;
                 MostrarPapeletaUsuario(UsuarioModel.id_departamento);
                 
+
             }
 
            
@@ -72,6 +75,7 @@ namespace HospitalRegionalIca.frm
         {
             PapeletaNegocio papeleta = new PapeletaNegocio();
             dataGridViewPapeleta.DataSource = papeleta.ListarPapeletas();
+            
 
             
 
@@ -279,7 +283,7 @@ namespace HospitalRegionalIca.frm
 
         private void frmPapeleta_Load(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void dataGridViewPapeleta_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -292,7 +296,7 @@ namespace HospitalRegionalIca.frm
            
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        public void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridViewPapeleta.Rows)
             {

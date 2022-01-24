@@ -73,13 +73,14 @@ namespace HospitalRegionalIca.frm
             this.lblIdMaximo = new System.Windows.Forms.Label();
             this.lblIdCategoria = new System.Windows.Forms.Label();
             this.cmbTurno = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblTurno = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtIdPapeleta = new System.Windows.Forms.TextBox();
             this.lblIdSolicitud = new System.Windows.Forms.Label();
             this.lblRDia = new System.Windows.Forms.Label();
             this.lblRmin = new System.Windows.Forms.Label();
+            this.lblIdDepTrabajador = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gpDia.SuspendLayout();
             this.gpHora.SuspendLayout();
@@ -463,6 +464,7 @@ namespace HospitalRegionalIca.frm
             this.lblIdTrabajador.TabIndex = 31;
             this.lblIdTrabajador.Text = "IdTrabajador";
             this.lblIdTrabajador.Visible = false;
+            this.lblIdTrabajador.Click += new System.EventHandler(this.lblIdTrabajador_Click);
             // 
             // lblRemuneracion
             // 
@@ -530,7 +532,6 @@ namespace HospitalRegionalIca.frm
             this.lblIdCategoria.Size = new System.Drawing.Size(94, 20);
             this.lblIdCategoria.TabIndex = 66;
             this.lblIdCategoria.Text = "IdCategoria";
-            this.lblIdCategoria.Visible = false;
             // 
             // cmbTurno
             // 
@@ -540,16 +541,16 @@ namespace HospitalRegionalIca.frm
             this.cmbTurno.Size = new System.Drawing.Size(269, 24);
             this.cmbTurno.TabIndex = 69;
             // 
-            // label18
+            // lblTurno
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label18.Location = new System.Drawing.Point(135, 362);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 20);
-            this.label18.TabIndex = 70;
-            this.label18.Text = "TURNO";
+            this.lblTurno.AutoSize = true;
+            this.lblTurno.BackColor = System.Drawing.Color.Transparent;
+            this.lblTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblTurno.Location = new System.Drawing.Point(135, 362);
+            this.lblTurno.Name = "lblTurno";
+            this.lblTurno.Size = new System.Drawing.Size(68, 20);
+            this.lblTurno.TabIndex = 70;
+            this.lblTurno.Text = "TURNO";
             // 
             // txtCodigo
             // 
@@ -615,12 +616,25 @@ namespace HospitalRegionalIca.frm
             this.lblRmin.Text = "RMinuto";
             this.lblRmin.Visible = false;
             // 
+            // lblIdDepTrabajador
+            // 
+            this.lblIdDepTrabajador.AutoSize = true;
+            this.lblIdDepTrabajador.BackColor = System.Drawing.Color.Transparent;
+            this.lblIdDepTrabajador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblIdDepTrabajador.Location = new System.Drawing.Point(901, 89);
+            this.lblIdDepTrabajador.Name = "lblIdDepTrabajador";
+            this.lblIdDepTrabajador.Size = new System.Drawing.Size(208, 20);
+            this.lblIdDepTrabajador.TabIndex = 79;
+            this.lblIdDepTrabajador.Text = "IdDepartamentoTrabajador";
+            this.lblIdDepTrabajador.Visible = false;
+            // 
             // frmAddPapeleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::HospitalRegionalIca.Properties.Resources.main_bg08;
             this.ClientSize = new System.Drawing.Size(1154, 1055);
+            this.Controls.Add(this.lblIdDepTrabajador);
             this.Controls.Add(this.lblRmin);
             this.Controls.Add(this.lblRDia);
             this.Controls.Add(this.lblIdSolicitud);
@@ -628,7 +642,7 @@ namespace HospitalRegionalIca.frm
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.cmbTurno);
-            this.Controls.Add(this.label18);
+            this.Controls.Add(this.lblTurno);
             this.Controls.Add(this.lblIdCategoria);
             this.Controls.Add(this.lblIdMaximo);
             this.Controls.Add(this.btnCalcular);
@@ -691,7 +705,7 @@ namespace HospitalRegionalIca.frm
         private System.Windows.Forms.Label lblDescuento;
         public System.Windows.Forms.Label lblIdMaximo;
         public System.Windows.Forms.Label lblIdCategoria;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblTurno;
         public System.Windows.Forms.RadioButton rbtnDia;
         public System.Windows.Forms.RadioButton rbtnHora;
         public System.Windows.Forms.TextBox txtDNI;
@@ -723,5 +737,6 @@ namespace HospitalRegionalIca.frm
         public System.Windows.Forms.Button btnCalcular;
         public System.Windows.Forms.Label lblRDia;
         public System.Windows.Forms.Label lblRmin;
+        public System.Windows.Forms.Label lblIdDepTrabajador;
     }
 }

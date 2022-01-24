@@ -29,6 +29,7 @@ namespace CapaDatos
                 {
                     id_turno=leer.GetInt32(0),
                     descripcion=leer.GetString(1)
+                    
                 });
             }
 
