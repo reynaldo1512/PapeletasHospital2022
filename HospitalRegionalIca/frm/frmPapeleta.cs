@@ -75,9 +75,11 @@ namespace HospitalRegionalIca.frm
         {
             PapeletaNegocio papeleta = new PapeletaNegocio();
             dataGridViewPapeleta.DataSource = papeleta.ListarPapeletas();
-            
+           dataGridViewPapeleta.Columns[0].Visible = false;
+            dataGridViewPapeleta.Columns[1].Visible = false;
+            dataGridViewPapeleta.Columns[2].Visible = false;
+            dataGridViewPapeleta.Columns[5].Visible = false;
 
-            
 
 
 

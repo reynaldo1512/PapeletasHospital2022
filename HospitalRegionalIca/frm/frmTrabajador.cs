@@ -43,9 +43,10 @@ namespace HospitalRegionalIca
             
                 TrabajadorNegocio trabajador = new TrabajadorNegocio();
                 dataGridViewTrabajador.DataSource = trabajador.ListarTrabajadores();
+           
 
-            
-            
+
+
         }
 
         public void BuscarTrabajador(string filtro)
