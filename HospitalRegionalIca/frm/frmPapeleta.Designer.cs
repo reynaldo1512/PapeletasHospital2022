@@ -113,6 +113,7 @@ namespace HospitalRegionalIca.frm
             // 
             // btnImprimir
             // 
+            this.btnImprimir.Enabled = false;
             this.btnImprimir.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnImprimir.Image = global::HospitalRegionalIca.Properties.Resources.Imprimir;
             this.btnImprimir.Location = new System.Drawing.Point(13, 388);

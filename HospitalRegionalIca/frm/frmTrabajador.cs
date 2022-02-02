@@ -13,9 +13,9 @@ namespace HospitalRegionalIca
 {
     public partial class frmTrabajador : Form
     {
-      
+
         TrabajadorNegocio trabajadorNegocio = new TrabajadorNegocio();
-        
+
         public frmTrabajador()
         {
             InitializeComponent();
@@ -163,7 +163,20 @@ namespace HospitalRegionalIca
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridViewTrabajador.SelectedRows.Count > 0)
+            {
+                TrabajadorNegocio trabajador = new TrabajadorNegocio();
+                int id_trabajador = Convert.ToInt32(dataGridViewTrabajador.CurrentRow.Cells["id_trabajador"].Value);
+                trabajador.EliminarTrabajador(id_trabajador);
+                mostrarTrabajador();
+               
+                //string id = dataGridViewTrabajador.CurrentRow.Cells["id_trabajador"].Value.ToString();
+                //Convert.ToInt32(id);
+                
+
+
+            }
+            else MessageBox.Show("Seleccione la fila del trabajador que desea eliminar");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

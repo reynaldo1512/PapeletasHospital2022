@@ -53,5 +53,6 @@ namespace CapaNegocios
         {
             data.EliminarPapeleta(id_papeleta);
         }
+       
     }
 }

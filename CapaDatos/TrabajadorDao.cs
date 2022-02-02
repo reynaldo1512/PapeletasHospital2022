@@ -13,6 +13,16 @@ namespace CapaDatos
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
 
+
+        public void EliminarTrabajador(int id_trabajador)
+        {
+            SqlCommand cmd = new SqlCommand("SP_ELIMINAR_TRABAJADOR", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            connection.Open();
+            cmd.Parameters.AddWithValue("@id_trabajador",id_trabajador);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
         public DataTable ListarTrabajador()
         {
             DataTable tabla = new DataTable();
@@ -28,7 +38,16 @@ namespace CapaDatos
 
             return tabla;
         }
-        
+
+        public void Eliminar(int id)
+        {
+            SqlCommand cmd = new SqlCommand("SP_ELIMINAR_TRABAJADOR", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            connection.Open();
+            cmd.Parameters.AddWithValue("@id_trabajador", id);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
         public DataTable BuscarTrabajador(TrabajadorModel trabajador)
         {
             DataTable tabla = new DataTable();
@@ -97,7 +116,7 @@ namespace CapaDatos
 
         }
            
-
+       
         
     }
 }

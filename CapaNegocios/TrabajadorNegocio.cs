@@ -21,7 +21,7 @@ namespace CapaNegocios
             return data.ListarTrabajador();
         }
 
-
+       
 
         public DataTable Buscartrabajador(string filtro)
         {
@@ -40,8 +40,11 @@ namespace CapaNegocios
         {
             data.EditarTrabajador(trabajador);
         }
-
-
+        
+        public void EliminarTrabajador(int id_trabajador)
+        {
+            data.EliminarTrabajador(id_trabajador);
+            }
 
     }
 }

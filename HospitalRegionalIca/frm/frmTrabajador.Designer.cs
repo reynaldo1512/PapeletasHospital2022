@@ -33,6 +33,7 @@ namespace HospitalRegionalIca
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dataGridViewTrabajador = new System.Windows.Forms.DataGridView();
             this.pBotones = new System.Windows.Forms.Panel();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@ namespace HospitalRegionalIca
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ptitulo = new System.Windows.Forms.Panel();
             this.lblPersonal = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrabajador)).BeginInit();
             this.pBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,6 +89,22 @@ namespace HospitalRegionalIca
             this.pBotones.Size = new System.Drawing.Size(118, 724);
             this.pBotones.TabIndex = 11;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscar.Image = global::HospitalRegionalIca.Properties.Resources.Buscar;
+            this.btnBuscar.Location = new System.Drawing.Point(13, 247);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(90, 76);
+            this.btnBuscar.TabIndex = 8;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 9F);
@@ -120,6 +136,7 @@ namespace HospitalRegionalIca
             // 
             // btnImprimir
             // 
+            this.btnImprimir.Enabled = false;
             this.btnImprimir.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnImprimir.Image = global::HospitalRegionalIca.Properties.Resources.Imprimir;
             this.btnImprimir.Location = new System.Drawing.Point(13, 414);
@@ -149,6 +166,7 @@ namespace HospitalRegionalIca
             // 
             // btneliminar
             // 
+            this.btneliminar.Enabled = false;
             this.btneliminar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btneliminar.Image = global::HospitalRegionalIca.Properties.Resources.Eliminar;
             this.btneliminar.Location = new System.Drawing.Point(13, 331);
@@ -194,22 +212,6 @@ namespace HospitalRegionalIca
             this.lblPersonal.Size = new System.Drawing.Size(139, 28);
             this.lblPersonal.TabIndex = 6;
             this.lblPersonal.Text = "Trabajador";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscar.Image = global::HospitalRegionalIca.Properties.Resources.Buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(13, 247);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(90, 76);
-            this.btnBuscar.TabIndex = 8;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // frmTrabajador
             // 
